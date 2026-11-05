@@ -8,7 +8,7 @@ import { useGoToEntry, useSession } from '@/features/session';
 import { colors, radii, spacing } from '@/theme';
 
 import { useCustomerProfileForm } from '../hooks/useCustomerProfileForm';
-import { getAreaOptions } from '../services/areaService';
+import { getAreaOptions } from '@/features/catalog';
 
 export function CustomerOnboardingScreen() {
   const { account } = useSession();

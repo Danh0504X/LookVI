@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { BIO_MAX_LENGTH, type ArtistProfile, type ServiceRadiusKm } from '@/domain/models';
 
-import { getCoveredAreas } from '../services/areaService';
+import { getCoveredAreas } from '@/features/catalog';
 
 const MIN_NAME_LENGTH = 2;
 const MIN_BIO_LENGTH = 10;

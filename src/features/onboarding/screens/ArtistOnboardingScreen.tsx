@@ -11,7 +11,7 @@ import { showDemoNotice } from '@/utils/demoNotice';
 
 import { ServiceRadiusPicker } from '../components/ServiceRadiusPicker';
 import { useArtistProfileForm } from '../hooks/useArtistProfileForm';
-import { getAreaOptions } from '../services/areaService';
+import { getAreaOptions } from '@/features/catalog';
 
 export function ArtistOnboardingScreen() {
   const { account } = useSession();
