@@ -1,9 +1,10 @@
 import { colors } from './colors';
+import { fontAssets, fontFamilies } from './fonts';
 import { radii } from './radii';
-import { spacing } from './spacing';
-import { fontWeights, typography } from './typography';
+import { layout, spacing } from './spacing';
+import { typography } from './typography';
 
-export { colors, fontWeights, radii, spacing, typography };
+export { colors, fontAssets, fontFamilies, layout, radii, spacing, typography };
 export type { ColorToken } from './colors';
 export type { RadiusToken } from './radii';
 export type { SpacingToken } from './spacing';
@@ -12,8 +13,9 @@ export type { TypographyToken } from './typography';
 export const theme = {
   colors,
   typography,
-  fontWeights,
+  fontFamilies,
   spacing,
+  layout,
   radii,
 } as const;
 

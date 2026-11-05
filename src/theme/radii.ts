@@ -1,12 +1,14 @@
 /**
- * Corner radius scale. PROVISIONAL until the Stitch designs are mapped.
+ * Corner radius scale. Images and cards use `xl`; inputs use `lg`; buttons and chips are
+ * pills (`full`).
  */
 export const radii = {
   none: 0,
   sm: 4,
   md: 8,
   lg: 12,
-  xl: 20,
+  xl: 16,
+  xxl: 24,
   full: 9999,
 } as const;
 
