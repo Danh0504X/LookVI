@@ -9,6 +9,10 @@ export type BookingsContextValue = {
   /** Creates a PENDING booking and returns it (ids and timestamps assigned here). */
   requestBooking: (request: BookingRequest) => Booking;
   cancelBooking: (id: string, by: CancelledBy) => void;
+  /** Artist response to a PENDING request. */
+  respondToRequest: (id: string, decision: 'accept' | 'decline') => void;
+  /** Artist marks a CONFIRMED booking as done. */
+  completeBooking: (id: string) => void;
 };
 
 export const BookingsContext = createContext<BookingsContextValue | null>(null);
@@ -45,6 +49,24 @@ export function BookingsProvider({ children }: { children: ReactNode }) {
         setBookings((current) => [booking, ...current]);
         return booking;
       },
+      respondToRequest: (id, decision) =>
+        setBookings((current) =>
+          current.map((booking) => {
+            if (booking.id !== id || booking.status !== 'PENDING') return booking;
+            const at = new Date().toISOString();
+            return decision === 'accept'
+              ? { ...booking, status: 'CONFIRMED', confirmedAt: at }
+              : { ...booking, status: 'DECLINED', closedAt: at };
+          }),
+        ),
+      completeBooking: (id) =>
+        setBookings((current) =>
+          current.map((booking) =>
+            booking.id === id && booking.status === 'CONFIRMED'
+              ? { ...booking, status: 'COMPLETED', completedAt: new Date().toISOString() }
+              : booking,
+          ),
+        ),
       cancelBooking: (id, by) =>
         setBookings((current) =>
           current.map((booking) =>

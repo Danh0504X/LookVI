@@ -1,7 +1,7 @@
 import { StyleSheet, View } from 'react-native';
 
 import { AppText, Icon } from '@/components/ui';
-import type { Booking } from '@/domain/models';
+import type { Booking, MessageSender } from '@/domain/models';
 import { colors, radii, spacing } from '@/theme';
 import { formatShortDate, formatTime } from '@/utils/dateTime';
 
@@ -10,7 +10,7 @@ type Step = { label: string; time: string | null; done: boolean; current: boolea
 const stamp = (iso: string | null) => (iso ? `${formatShortDate(iso)} · ${formatTime(iso)}` : null);
 
 /** Shortened progress (confirmed): Requested → Confirmed → Completed, or the closing step. */
-function getSteps(booking: Booking): Step[] {
+function getSteps(booking: Booking, viewer: MessageSender): Step[] {
   const requested: Step = { label: 'Request sent', time: stamp(booking.requestedAt), done: true, current: false };
 
   if (booking.status === 'DECLINED' || booking.status === 'CANCELLED') {
@@ -19,10 +19,14 @@ function getSteps(booking: Booking): Step[] {
       : [];
     const label =
       booking.status === 'DECLINED'
-        ? 'Declined by artist'
-        : booking.cancelledBy === 'artist'
-          ? 'Cancelled by artist'
-          : 'Cancelled by you';
+        ? viewer === 'artist'
+          ? 'Declined by you'
+          : 'Declined by artist'
+        : booking.cancelledBy === viewer
+          ? 'Cancelled by you'
+          : booking.cancelledBy === 'artist'
+            ? 'Cancelled by artist'
+            : 'Cancelled by customer';
     return [requested, ...confirmed, { label, time: stamp(booking.closedAt), done: true, current: true, closed: true }];
   }
 
@@ -43,8 +47,14 @@ function getSteps(booking: Booking): Step[] {
   ];
 }
 
-export function BookingProgress({ booking }: { booking: Booking }) {
-  const steps = getSteps(booking);
+export function BookingProgress({
+  booking,
+  viewer = 'customer',
+}: {
+  booking: Booking;
+  viewer?: MessageSender;
+}) {
+  const steps = getSteps(booking, viewer);
 
   return (
     <View accessibilityRole="list">

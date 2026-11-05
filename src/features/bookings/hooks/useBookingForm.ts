@@ -78,6 +78,7 @@ export function useBookingForm({
     return {
       customerId: customer.id,
       customerName: customer.name,
+      customerAvatar: customer.avatar,
       artistId: artist.id,
       postId: post?.id ?? null,
       lookName: post?.lookName ?? null,

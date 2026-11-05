@@ -100,7 +100,7 @@ function BookingDetail({ booking, artist }: { booking: Booking; artist: Artist }
       }
       footer={footer}
     >
-      <StatusBanner booking={booking} artist={artist} />
+      <StatusBanner booking={booking} viewer="customer" counterpartName={artist.name} />
 
       <View style={styles.section}>
         <SectionHeader title="Progress" />

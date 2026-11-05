@@ -50,6 +50,11 @@ export function isCancellationLocked(booking: Booking, now: Date = new Date()): 
   return isActive(booking) && now >= cancellationDeadline(booking);
 }
 
+/** Artists can mark a confirmed booking completed once the appointment has started. */
+export function canComplete(booking: Booking, now: Date = new Date()): boolean {
+  return booking.status === 'CONFIRMED' && now >= new Date(booking.startsAt);
+}
+
 export function bookingEndsAt(booking: Pick<Booking, 'startsAt' | 'durationMinutes'>): Date {
   return new Date(new Date(booking.startsAt).getTime() + booking.durationMinutes * 60_000);
 }
