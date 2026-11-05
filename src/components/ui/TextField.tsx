@@ -10,6 +10,8 @@ import { Icon, type IconName } from './Icon';
 type TextFieldProps = Omit<TextInputProps, 'style' | 'placeholderTextColor'> & {
   label: string;
   helper?: string;
+  /** Validation message; replaces the helper and highlights the field. */
+  error?: string | null;
   trailingIcon?: IconName;
   /** Shows "count/max" next to the label when `maxLength` is set. */
   showCounter?: boolean;
@@ -18,6 +20,7 @@ type TextFieldProps = Omit<TextInputProps, 'style' | 'placeholderTextColor'> & {
 export function TextField({
   label,
   helper,
+  error,
   trailingIcon,
   showCounter = false,
   multiline,
@@ -39,6 +42,7 @@ export function TextField({
           styles.box,
           multiline && styles.boxMultiline,
           focused && styles.boxFocused,
+          error ? styles.boxError : null,
         ]}
       >
         <TextInput
@@ -47,7 +51,7 @@ export function TextField({
           maxLength={maxLength}
           multiline={multiline}
           accessibilityLabel={label}
-          accessibilityHint={helper}
+          accessibilityHint={error ?? helper}
           placeholderTextColor={colors.textMuted}
           selectionColor={colors.primary}
           textAlignVertical={multiline ? 'top' : 'center'}
@@ -63,9 +67,9 @@ export function TextField({
         />
         {trailingIcon ? <Icon name={trailingIcon} size={22} color={colors.textMuted} /> : null}
       </View>
-      {helper ? (
-        <AppText variant="labelMd" color="textMuted" style={styles.helper}>
-          {helper}
+      {error || helper ? (
+        <AppText variant="labelMd" color={error ? 'error' : 'textMuted'} style={styles.helper}>
+          {error ?? helper}
         </AppText>
       ) : null}
     </View>
@@ -86,6 +90,7 @@ const styles = StyleSheet.create({
   },
   boxMultiline: { alignItems: 'flex-start', paddingVertical: spacing.md },
   boxFocused: { borderColor: colors.primary },
+  boxError: { borderColor: colors.error },
   input: {
     ...typography.bodyLg,
     flex: 1,
