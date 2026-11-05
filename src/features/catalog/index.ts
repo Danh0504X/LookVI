@@ -10,6 +10,8 @@ export {
   getPostById,
   getPostOffer,
   getPosts,
+  getPostsByArtist,
+  getReviewsForArtist,
   getServiceForArtist,
   getStyleById,
   getStyles,

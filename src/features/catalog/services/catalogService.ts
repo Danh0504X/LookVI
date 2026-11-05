@@ -1,5 +1,12 @@
-import { mockAreas, mockArtists, mockPosts, mockServices, mockStyles } from '@/data/mock';
-import type { Area, Artist, Post, Service, ServiceVariant, Style } from '@/domain/models';
+import {
+  mockAreas,
+  mockArtists,
+  mockPosts,
+  mockReviews,
+  mockServices,
+  mockStyles,
+} from '@/data/mock';
+import type { Area, Artist, Post, Review, Service, ServiceVariant, Style } from '@/domain/models';
 import { distanceKm } from '@/utils/geo';
 
 /**
@@ -21,6 +28,17 @@ export function getPosts(): readonly Post[] {
 
 export function getPostById(id: string): Post | undefined {
   return mockPosts.find((post) => post.id === id);
+}
+
+export function getPostsByArtist(artistId: string): Post[] {
+  return mockPosts.filter((post) => post.artistId === artistId);
+}
+
+/** Most recent reviews first. */
+export function getReviewsForArtist(artistId: string): Review[] {
+  return mockReviews
+    .filter((review) => review.artistId === artistId)
+    .sort((a, b) => b.createdAt.localeCompare(a.createdAt));
 }
 
 export function getStyles(): readonly Style[] {
