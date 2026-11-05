@@ -1,5 +1,10 @@
 export type { Area } from './area';
+export type { Artist } from './artist';
 export { BIO_MAX_LENGTH, SERVICE_RADIUS_OPTIONS_KM } from './artistProfile';
 export type { ArtistProfile, ServiceRadiusKm } from './artistProfile';
 export type { ImageRef } from './media';
+export type { Post } from './post';
+export { OCCASION_LABELS } from './service';
+export type { Occasion, Service, ServiceVariant } from './service';
+export type { Style } from './style';
 export type { Account, CustomerProfile, UserRole } from './user';
