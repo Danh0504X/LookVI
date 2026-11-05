@@ -1,13 +1,8 @@
-import {
-  mockAreas,
-  mockArtists,
-  mockPosts,
-  mockReviews,
-  mockServices,
-  mockStyles,
-} from '@/data/mock';
+import { mockAreas, mockArtists, mockPosts, mockReviews, mockStyles } from '@/data/mock';
 import type { Area, Artist, Post, Review, Service, ServiceVariant, Style } from '@/domain/models';
 import { distanceKm } from '@/utils/geo';
+
+import { getServicesSnapshot } from './serviceStore';
 
 /**
  * Read-only access to the discovery catalog. Backed by mock data today; screens depend
@@ -54,7 +49,7 @@ export function getAreaById(id: string): Area | undefined {
 }
 
 export function getServiceForArtist(artistId: string): Service | undefined {
-  return mockServices.find((service) => service.artistId === artistId);
+  return getServicesSnapshot().find((service) => service.artistId === artistId);
 }
 
 /** Lowest advertised variant price of an artist, used for "From X" on artist rows. */
@@ -66,7 +61,7 @@ export function getArtistStartingPrice(artistId: string): number | null {
 /** Variants of the post's linked service that can achieve the look. */
 export function getEligibleVariants(post: Post): ServiceVariant[] {
   if (!post.serviceId) return [];
-  const service = mockServices.find((item) => item.id === post.serviceId);
+  const service = getServicesSnapshot().find((item) => item.id === post.serviceId);
   return service?.variants.filter((variant) => post.eligibleVariantIds.includes(variant.id)) ?? [];
 }
 

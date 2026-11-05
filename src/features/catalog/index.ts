@@ -17,4 +17,5 @@ export {
   getStyles,
 } from './services/catalogService';
 export { describePostCard, toPostCard, toPostCards } from './services/postCards';
+export { deleteVariant, saveVariant, useServices } from './services/serviceStore';
 export type { PostCardData } from './services/postCards';
