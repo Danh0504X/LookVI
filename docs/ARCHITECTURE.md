@@ -53,12 +53,18 @@ export { ArtistOnboardingScreen as default } from '@/features/onboarding';
 | `/home` | Customer home (tab) | home |
 | `/explore?filter=` | Explore grid (tab); `filter` = `all`, `style:<id>`, `occasion:<id>` | explore |
 | `/explore/search?tab=` | Search, inside the Explore tab stack | search |
-| `/saved`, `/bookings`, `/profile` | **Temporary** placeholders (tabs) | saved / session |
+| `/bookings` | My bookings (tab): Pending / Upcoming / History | bookings |
+| `/saved`, `/profile` | **Temporary** placeholders (tabs) | saved / session |
 | `/post/[postId]` | Full-screen look detail, above the tabs | looks |
+| `/artist/[artistId]` | Artist profile (customer view): services, portfolio, reviews | artists |
+| `/book/[artistId]?postId=&variantId=` | Booking request form | bookings |
+| `/booking/[bookingId]/sent` | "Request sent" confirmation (no swipe back) | bookings |
+| `/booking/[bookingId]` | Booking detail, cancel | bookings |
 | `/coming-soon` | **Temporary** end of the artist flow | session |
 
 `app/(customer)/_layout.tsx` guards the customer area (redirects to `/` without a finished
-customer setup) and mounts `SavedProvider` and `SearchHistoryProvider`.
+customer setup) and mounts `SavedProvider` and `SearchHistoryProvider`. `BookingsProvider` is
+mounted in `app/_layout.tsx`, outside the session, so bookings survive role switches.
 
 Navigation after a session change uses `useGoToEntry()` (clears the stack, then `/` decides).
 
@@ -71,7 +77,9 @@ Navigation after a session change uses `useGoToEntry()` (clears the stack, then 
 | `auth`, `onboarding` | Sign-in, role choice, first-time setup screens |
 | `location` | Customer header with area picker |
 | `home`, `explore`, `search`, `looks` | Discovery screens |
-| `saved` | In-memory saved looks (screen in Batch 4) |
+| `saved` | In-memory saved looks and artists (screen in Batch 4) |
+| `artists` | Artist profile as customers see it |
+| `bookings` | Bookings store, booking rules (groups, 2-hour cancellation), demo availability, booking screens |
 
 ## App state
 

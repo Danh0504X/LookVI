@@ -102,7 +102,18 @@ CONFIRMED → COMPLETED | CANCELLED
 `CANCELLED` records who cancelled (customer or artist). Progress trackers in the UI show
 Requested → Confirmed → Completed. "On my way" / "Arrived" actions from Stitch are dropped.
 
-**Deferred:** reschedule. **Open:** response SLA (Stitch copy "usually accepts within 15
+**Implemented in the demo (Batch 3):**
+- A request snapshots variant, duration and price; "Book again" starts a new request.
+- Booking from a look offers only the variants that can achieve it; booking from a profile
+  offers all variants.
+- Demo availability: 14 days ahead, fixed daily slots, at least 2 hours from now, minus slots
+  overlapping the artist's pending/confirmed bookings (real calendars come with a backend).
+- The customer's area must be within the artist's service radius to send a request.
+- Address is prefilled from the customer's most recent booking.
+- Cancel is available while PENDING/CONFIRMED and more than 2 hours before start.
+- Payment copy: "No advance payment … you pay after the service" (payments not in the demo).
+
+**Deferred:** reschedule; rating/review after completion (no Stitch design yet). **Open:** response SLA (Stitch copy "usually accepts within 15
 minutes" is illustrative), review window, dispute flow.
 
 ## 7. Stitch screen inventory (`ui/stitch_glow_beauty_app_ui/`)
