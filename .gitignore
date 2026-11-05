@@ -1,0 +1,71 @@
+# Learn more: https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
+
+# ─── Dependencies ──────────────────────────────────────────────
+node_modules/
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+
+# ─── Expo ──────────────────────────────────────────────────────
+.expo/
+dist/
+web-build/
+expo-env.d.ts
+
+# ─── Generated native projects (Continuous Native Generation) ──
+/ios
+/android
+.kotlin/
+
+# ─── Build artifacts ───────────────────────────────────────────
+*.apk
+*.aab
+*.ipa
+*.app
+*.dSYM.zip
+
+# ─── Signing keys & credentials (never commit) ─────────────────
+*.jks
+*.keystore
+!debug.keystore
+*.p8
+*.p12
+*.key
+*.pem
+*.mobileprovision
+credentials.json
+
+# ─── Environment variables (never commit secrets) ──────────────
+.env
+.env.*
+!.env.example
+
+# ─── Metro / tooling caches ────────────────────────────────────
+.metro-health-check*
+*.tsbuildinfo
+.eslintcache
+coverage/
+
+# ─── Logs ──────────────────────────────────────────────────────
+*.log
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# ─── Merge leftovers ───────────────────────────────────────────
+*.orig.*
+
+# ─── OS files ──────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ─── Editors (shared .vscode/ settings stay tracked) ───────────
+.idea/
+*.swp
+*.swo
+
+# ─── Claude Code (personal settings only) ──────────────────────
+.claude/settings.local.json
