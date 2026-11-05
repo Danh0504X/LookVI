@@ -52,13 +52,14 @@ Roles: **Customer** and **Makeup Artist**.
 
 | Batch | Scope | Status |
 |---|---|---|
-| 1 | Theme, fonts, icons, images, base components, session; Welcome, Login, Role select, Customer onboarding, Artist onboarding | **Done** (not yet reviewed on device) |
-| 2 | Customer tabs; Home, Explore, Look detail, Search (all result states) | Next |
-| 3 | Artist profile (customer view), Booking form, Confirmation, My bookings, Booking detail, cancel rule | — |
+| 1 | Theme, fonts, icons, images, base components, session; Welcome, Login, Role select, Customer onboarding, Artist onboarding | **Done** |
+| 2 | Customer tabs; Home, Explore, Look detail, Search (all result states) | **Done** (not yet reviewed on device) |
+| 3 | Artist profile (customer view), Booking form, Confirmation, My bookings, Booking detail, cancel rule | Next |
 | 4 | Saved, Profile, Chat (mock) | — |
 | 5 | Artist tabs; Dashboard, Booking requests, Artist booking detail, Portfolio, My services, Create/Edit service | — |
 
-`/coming-soon` is a temporary end-of-flow screen; replace it when role home screens exist.
+Temporary screens: `/coming-soon` (artist end of flow until Batch 5); customer Saved, Bookings
+and Profile tabs are placeholders. "Artist profiles" and "Book" show a demo notice until Batch 3.
 Mocked Google sign-in returns "Mai Chi"; choosing Artist pre-fills the demo artist
 "Linh Nguyen". No backend, real auth or payments.
 
@@ -71,9 +72,12 @@ Mocked Google sign-in returns "Mai Chi"; choosing Artist pre-fills the demo arti
   render the bundled Material Symbols font via `src/components/ui/Icon.tsx`)
 - Fonts: `@expo-google-fonts/playfair-display`, `@expo-google-fonts/plus-jakarta-sans`
   (import per weight, e.g. `.../400Regular`, so only used weights are bundled)
-- Shared primitives: `@/components/ui` (AppText, Button, Chip, TextField, SelectField,
-  OptionSheet, Avatar, Icon, Wordmark, PageHeading) and `@/components/layout` (Screen,
-  TopBar, PlaceholderScreen). Use them before writing new ones.
+- Shared primitives: `@/components/ui` (AppText, Button, Chip, IconButton, TextField,
+  SelectField, OptionSheet, SearchField, SectionHeader, Rating, Avatar, Icon, Wordmark,
+  PageHeading), `@/components/layout` (Screen, TopBar, AppHeader, PlaceholderScreen) and
+  `@/components/cards` (LookCard, ArtistRow, PostRow, StyleCard). Use them before writing
+  new ones.
+- Gradients: React Native's built-in `backgroundImage: 'linear-gradient(...)'` style (no library).
 - ESLint via `eslint-config-expo` (flat config)
 - No state-management library, no styling framework, no backend SDK
 

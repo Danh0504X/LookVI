@@ -11,6 +11,7 @@ lives in `src/`.
 | `src/features/<feature>/` | Screens, feature components, hooks and services for one product area | `@/components`, `@/domain`, `@/theme`, `@/hooks`, `@/utils`, `@/config` |
 | `src/components/ui` | Shared presentational primitives | `@/theme`, `@/utils` |
 | `src/components/layout` | Shared layout primitives (screen container, sections) | `@/theme`, `@/components/ui` |
+| `src/components/cards` | Shared presentational content cards (look, artist, post, style); props only, no data access | `@/theme`, `@/components/ui`, `@/domain` (types) |
 | `src/domain/models` | Plain TypeScript types for domain entities; no React, no I/O | nothing |
 | `src/data/mock` | Mock data for development, typed with domain models | `@/domain` |
 | `src/theme` | Design tokens (single source of visual values) | nothing |
@@ -49,14 +50,34 @@ export { ArtistOnboardingScreen as default } from '@/features/onboarding';
 | `/` | Redirects by session (`getEntryRoute`) | session |
 | `/welcome`, `/login`, `/role` | Welcome, Login, Role select | auth (`app/(auth)/`) |
 | `/onboarding/customer`, `/onboarding/artist` | First-time setup per role | onboarding |
-| `/coming-soon` | **Temporary** end of Batch 1 | session |
+| `/home` | Customer home (tab) | home |
+| `/explore?filter=` | Explore grid (tab); `filter` = `all`, `style:<id>`, `occasion:<id>` | explore |
+| `/explore/search?tab=` | Search, inside the Explore tab stack | search |
+| `/saved`, `/bookings`, `/profile` | **Temporary** placeholders (tabs) | saved / session |
+| `/post/[postId]` | Full-screen look detail, above the tabs | looks |
+| `/coming-soon` | **Temporary** end of the artist flow | session |
+
+`app/(customer)/_layout.tsx` guards the customer area (redirects to `/` without a finished
+customer setup) and mounts `SavedProvider` and `SearchHistoryProvider`.
 
 Navigation after a session change uses `useGoToEntry()` (clears the stack, then `/` decides).
+
+## Features
+
+| Feature | Responsibility |
+|---|---|
+| `session` | Mock sign-in, role, setup profiles, entry routing |
+| `catalog` | Read access to areas, artists, posts, styles, services and derived offers ("From X") |
+| `auth`, `onboarding` | Sign-in, role choice, first-time setup screens |
+| `location` | Customer header with area picker |
+| `home`, `explore`, `search`, `looks` | Discovery screens |
+| `saved` | In-memory saved looks (screen in Batch 4) |
 
 ## App state
 
 `SessionProvider` (React context + reducer) holds the mocked account, role and setup
-profiles **in memory**; a cold start always returns to Welcome. No state library is used.
+profiles; `SavedProvider` and `SearchHistoryProvider` hold saved looks and recent searches.
+Everything is **in memory**: a cold start always returns to Welcome. No state library is used.
 
 ## Data flow
 

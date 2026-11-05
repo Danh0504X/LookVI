@@ -97,12 +97,13 @@ the Expo plugin is declared in `.claude/settings.json` (install with
 
 ## Current status
 
-Batch 1 of the UI phase is implemented: Stitch-derived theme, fonts, icons, bundled demo
-images, shared components, an in-memory session, and the Welcome → Login (mocked Google)
-→ Role select → Customer / Artist onboarding flow. The flow ends on a temporary
-"coming soon" screen. See `CLAUDE.md` §2 for the batch plan.
+Batches 1–2 of the UI phase are implemented: sign-in and onboarding for both roles, then the
+customer tab bar with Home, Explore (style and occasion filters), full-screen Look detail and
+Search (recent/suggested searches; All, Styles, Posts and Artists results). Saved, Bookings
+and Profile tabs are placeholders. See `CLAUDE.md` §2 for the batch plan.
 
 ## Next phase
 
-Batch 2: customer tab bar, Home, Explore, Look detail and Search (all result states).
+Batch 3: artist profile (customer view), booking form, confirmation, My bookings, booking
+detail and the 2-hour free-cancellation rule.
 Before the first EAS build, set the iOS bundle identifier and Android package.
