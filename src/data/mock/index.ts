@@ -1,8 +1,10 @@
 export { mockArtistProfileDraft, mockGoogleAccount } from './accounts';
 export { mockAreas } from './areas';
 export { mockArtists } from './artists';
+export { createMockBookings } from './bookings';
 export { mockImages } from './images';
 export { mockPosts } from './posts';
+export { mockReviews } from './reviews';
 export { mockRecentSearches, mockSuggestedSearches } from './search';
 export { mockServices } from './services';
 export { mockStyles } from './styles';
