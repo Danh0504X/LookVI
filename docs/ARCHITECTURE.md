@@ -56,18 +56,24 @@ export { ArtistOnboardingScreen as default } from '@/features/onboarding';
 | `/bookings` | My bookings (tab): Pending / Upcoming / History | bookings |
 | `/saved` | Saved looks and artists (tab) | saved |
 | `/profile` | Customer profile and account (tab) | profile |
-| `/chat/[bookingId]` | Booking-scoped chat (both roles) | messaging |
-| `/post/[postId]` | Full-screen look detail, above the tabs | looks |
 | `/artist/[artistId]` | Artist profile (customer view): services, portfolio, reviews | artists |
 | `/book/[artistId]?postId=&variantId=` | Booking request form | bookings |
 | `/booking/[bookingId]/sent` | "Request sent" confirmation (no swipe back) | bookings |
 | `/booking/[bookingId]` | Booking detail, cancel | bookings |
-| `/coming-soon` | **Temporary** end of the artist flow | session |
+| `/dashboard` | Artist home (tab) | studio |
+| `/requests` | Artist bookings (tab): New / Upcoming / History | bookings |
+| `/portfolio` | Artist's posts with linked packages (tab) | studio |
+| `/account` | Artist profile and account (tab) | studio |
+| `/request/[bookingId]` | Artist booking detail: accept, decline, complete, cancel | bookings |
+| `/services`, `/services/new`, `/services/edit/[variantId]` | Packages and rates | studio |
+| `/post/[postId]` | Full-screen look detail (shared; artists get a read-only view) | looks |
+| `/chat/[bookingId]` | Booking-scoped chat (shared by both roles) | messaging |
 
 `app/(customer)/_layout.tsx` guards the customer area (redirects to `/` without a finished
-customer setup) and mounts `SavedProvider` and `SearchHistoryProvider`. `BookingsProvider` is
-mounted in `app/_layout.tsx` together with `MessagesProvider`, outside the session, so bookings
-and chats survive role switches.
+customer setup) and mounts `SearchHistoryProvider`; `app/(artist)/_layout.tsx` guards the artist
+area the same way. `/post` and `/chat` live at the root because both roles use them.
+`BookingsProvider`, `MessagesProvider` and `SavedProvider` are mounted in `app/_layout.tsx`,
+outside the session, so data survives role switches.
 
 Navigation after a session change uses `useGoToEntry()` (clears the stack, then `/` decides).
 
@@ -83,6 +89,7 @@ Navigation after a session change uses `useGoToEntry()` (clears the stack, then 
 | `saved` | In-memory saved looks and artists, Saved screen |
 | `profile` | Customer profile, account rows, switch to artist mode, log out |
 | `messaging` | Messages store, chat screen, contact policy (no phone numbers) |
+| `studio` | Artist workspace: dashboard, portfolio, services and rates, artist account |
 | `artists` | Artist profile as customers see it |
 | `bookings` | Bookings store, booking rules (groups, 2-hour cancellation), demo availability, booking screens |
 
@@ -90,6 +97,8 @@ Navigation after a session change uses `useGoToEntry()` (clears the stack, then 
 
 `SessionProvider` (React context + reducer) holds the mocked account, role and setup
 profiles; `SavedProvider` and `SearchHistoryProvider` hold saved looks and recent searches.
+Service packages live in a small external store (`catalog/services/serviceStore.ts`, built on
+`useSyncExternalStore`) so artist edits reach customer screens.
 Everything is **in memory**: a cold start always returns to Welcome. No state library is used.
 
 ## Data flow

@@ -55,15 +55,22 @@ Roles: **Customer** and **Makeup Artist**.
 | 1 | Theme, fonts, icons, images, base components, session; Welcome, Login, Role select, Customer onboarding, Artist onboarding | **Done** |
 | 2 | Customer tabs; Home, Explore, Look detail, Search (all result states) | **Done** |
 | 3 | Artist profile (customer view), Booking form, Confirmation, My bookings, Booking detail, cancel rule | **Done** |
-| 4 | Saved, Profile, Chat (mock) | **Done** (not yet reviewed on device) |
-| 5 | Artist tabs; Dashboard, Booking requests, Artist booking detail, Portfolio, My services, Create/Edit service | Next |
+| 4 | Saved, Profile, Chat (mock) | **Done** |
+| 5 | Artist tabs; Dashboard, Booking requests, Artist booking detail, Portfolio, My services, Create/Edit service | **Done** (not yet reviewed on device) |
 
-Temporary screens: `/coming-soon` (artist end of flow until Batch 5). "Switch to artist mode"
-in the customer Profile changes the role without signing out. Chat is booking-scoped and
-blocks phone numbers (`features/messaging/services/contactPolicy.ts`).
+All Stitch screens are now implemented. Next work needs new decisions or designs (see
+`docs/PRODUCT_CONTEXT.md` §9).
+
+Role switching: "Switch to artist mode" (customer Profile) and "Switch to customer mode"
+(artist Profile) change the role without signing out. The demo artist is `linh-nguyen`; the
+session's `artistProfile.artistId` links the artist side to catalog data. Chat is
+booking-scoped and blocks phone numbers (`features/messaging/services/contactPolicy.ts`).
+Service packages are editable (`features/catalog/services/serviceStore.ts`); customers see
+new prices immediately, existing bookings keep their snapshot.
 New booking requests stay `PENDING` until the artist side (Batch 5) can accept them; seeded
 bookings cover the other statuses. `BookingsProvider` is mounted at the app root so bookings
-survive sign-out / role switching; `MessagesProvider` sits next to it for the same reason.
+survive sign-out / role switching; `MessagesProvider` and `SavedProvider` sit next to it for
+the same reason.
 Mocked Google sign-in returns "Mai Chi"; choosing Artist pre-fills the demo artist
 "Linh Nguyen". No backend, real auth or payments.
 

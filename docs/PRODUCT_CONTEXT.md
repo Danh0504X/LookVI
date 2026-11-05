@@ -117,7 +117,19 @@ Requested → Confirmed → Completed. "On my way" / "Arrived" actions from Stit
 
 **Chat (Batch 4):** one conversation per booking, shared by both roles. Messages containing a
 phone-number-like run of 9+ digits cannot be sent (confirmed: contact stays in the app).
-Closed bookings (declined/cancelled) keep a read-only history. No attachments or voice yet. **Open:** response SLA (Stitch copy "usually accepts within 15
+Closed bookings (declined/cancelled) keep a read-only history. No attachments or voice yet.
+
+**Artist side (Batch 5):**
+- The artist accepts or declines PENDING requests (decline asks for confirmation).
+- "Mark as completed" is available once the appointment has started.
+- Either side may cancel free of charge until 2 hours before the start.
+- Packages (category, name, price 100.000–10.000.000₫ in steps of 1.000₫, duration,
+  description) can be created, edited and deleted (at least one must remain). Price changes
+  apply to new requests only.
+- Requests show an approximate distance from the artist's base area (district centres).
+- No phone call action: contact stays in chat (Stitch's call button was removed).
+- Not built (no product rule or design yet): "accepting short-notice" toggle, publishing new
+  posts (needs photo upload), linking posts to packages, earnings/commission view. **Open:** response SLA (Stitch copy "usually accepts within 15
 minutes" is illustrative), review window, dispute flow.
 
 ## 7. Stitch screen inventory (`ui/stitch_glow_beauty_app_ui/`)
