@@ -9,6 +9,7 @@ import { PlaceholderScreen } from '@/components/layout';
 import { IconButton } from '@/components/ui';
 import { getPostById, toPostCard, type PostCardData } from '@/features/catalog';
 import { useSaved } from '@/features/saved';
+import { useSession } from '@/features/session';
 import { colors, layout, spacing } from '@/theme';
 
 import { LookInfoPanel } from '../components/LookInfoPanel';
@@ -38,6 +39,9 @@ function LookDetail({ card }: { card: PostCardData }) {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const { isPostSaved, togglePostSaved } = useSaved();
+  const { role } = useSession();
+  // Artists preview their own posts here: no saving, booking or profile link.
+  const asCustomer = role !== 'artist';
   const [size, setSize] = useState({ width: 0, height: 0 });
   const [page, setPage] = useState(0);
   const { post } = card;
@@ -88,15 +92,21 @@ function LookDetail({ card }: { card: PostCardData }) {
         card={card}
         saved={isPostSaved(post.id)}
         bottomInset={insets.bottom}
-        onToggleSave={() => togglePostSaved(post.id)}
-        onOpenArtist={() =>
-          router.push({ pathname: '/artist/[artistId]', params: { artistId: card.artist.id } })
+        onToggleSave={asCustomer ? () => togglePostSaved(post.id) : undefined}
+        onOpenArtist={
+          asCustomer
+            ? () =>
+                router.push({ pathname: '/artist/[artistId]', params: { artistId: card.artist.id } })
+            : undefined
         }
-        onBook={() =>
-          router.push({
-            pathname: '/book/[artistId]',
-            params: { artistId: card.artist.id, postId: post.id },
-          })
+        onBook={
+          asCustomer
+            ? () =>
+                router.push({
+                  pathname: '/book/[artistId]',
+                  params: { artistId: card.artist.id, postId: post.id },
+                })
+            : undefined
         }
       />
     </View>

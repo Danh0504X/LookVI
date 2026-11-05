@@ -1,6 +1,5 @@
 import { Redirect, Stack } from 'expo-router';
 
-import { SavedProvider } from '@/features/saved';
 import { SearchHistoryProvider } from '@/features/search';
 import { useSession } from '@/features/session';
 import { colors } from '@/theme';
@@ -11,15 +10,13 @@ export default function CustomerLayout() {
   if (!account || role !== 'customer' || !customerProfile) return <Redirect href="/" />;
 
   return (
-    <SavedProvider>
-      <SearchHistoryProvider>
+    <SearchHistoryProvider>
         <Stack
           screenOptions={{ headerShown: false, contentStyle: { backgroundColor: colors.background } }}
         >
           {/* The request is already sent: no swipe back into the form. */}
           <Stack.Screen name="booking/[bookingId]/sent" options={{ gestureEnabled: false }} />
         </Stack>
-      </SearchHistoryProvider>
-    </SavedProvider>
+    </SearchHistoryProvider>
   );
 }

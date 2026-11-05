@@ -99,7 +99,10 @@ function Chat({ booking, artist }: { booking: Booking; artist: Artist }) {
         <BookingContextCard
           booking={booking}
           onPress={() =>
-            router.navigate({ pathname: '/booking/[bookingId]', params: { bookingId: booking.id } })
+            router.navigate({
+              pathname: viewer === 'artist' ? '/request/[bookingId]' : '/booking/[bookingId]',
+              params: { bookingId: booking.id },
+            })
           }
         />
 

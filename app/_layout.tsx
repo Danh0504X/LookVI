@@ -8,6 +8,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { iconFontAssets } from '@/components/ui';
 import { BookingsProvider } from '@/features/bookings';
 import { MessagesProvider } from '@/features/messaging';
+import { SavedProvider } from '@/features/saved';
 import { SessionProvider } from '@/features/session';
 import { colors, fontAssets } from '@/theme';
 
@@ -29,13 +30,15 @@ export default function RootLayout() {
       <BookingsProvider>
         <MessagesProvider>
           <SessionProvider>
-            <StatusBar style="dark" />
-            <Stack
-              screenOptions={{
-                headerShown: false,
-                contentStyle: { backgroundColor: colors.background },
-              }}
-            />
+            <SavedProvider>
+              <StatusBar style="dark" />
+              <Stack
+                screenOptions={{
+                  headerShown: false,
+                  contentStyle: { backgroundColor: colors.background },
+                }}
+              />
+            </SavedProvider>
           </SessionProvider>
         </MessagesProvider>
       </BookingsProvider>

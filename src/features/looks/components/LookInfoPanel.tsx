@@ -11,9 +11,12 @@ type LookInfoPanelProps = {
   card: PostCardData;
   saved: boolean;
   bottomInset: number;
-  onToggleSave: () => void;
-  onOpenArtist: () => void;
-  onBook: () => void;
+  /** Omitted when the viewer cannot save (artist role). */
+  onToggleSave?: () => void;
+  /** Omitted when the artist profile is not reachable (artist role). */
+  onOpenArtist?: () => void;
+  /** Omitted when booking is not available (artist role). */
+  onBook?: () => void;
 };
 
 /** Bottom overlay of the look detail: artist, title, description, offer and Book. */
@@ -32,8 +35,9 @@ export function LookInfoPanel({
       <View style={styles.artistRow}>
         <Pressable
           onPress={onOpenArtist}
-          accessibilityRole="button"
-          accessibilityLabel={`View ${artist.name}'s profile`}
+          disabled={!onOpenArtist}
+          accessibilityRole={onOpenArtist ? 'button' : undefined}
+          accessibilityLabel={onOpenArtist ? `View ${artist.name}'s profile` : artist.name}
           style={styles.artist}
         >
           <Image source={artist.avatar} contentFit="cover" style={styles.avatar} />
@@ -49,15 +53,17 @@ export function LookInfoPanel({
             <Rating value={artist.rating} reviewCount={artist.reviewCount} countStyle="long" onImage />
           </View>
         </Pressable>
-        <IconButton
-          icon="favorite"
-          filled={saved}
-          selected={saved}
-          iconColor={saved ? colors.accentSoft : colors.onPrimary}
-          variant="overlay"
-          accessibilityLabel={saved ? 'Remove from saved' : 'Save look'}
-          onPress={onToggleSave}
-        />
+        {onToggleSave ? (
+          <IconButton
+            icon="favorite"
+            filled={saved}
+            selected={saved}
+            iconColor={saved ? colors.accentSoft : colors.onPrimary}
+            variant="overlay"
+            accessibilityLabel={saved ? 'Remove from saved' : 'Save look'}
+            onPress={onToggleSave}
+          />
+        ) : null}
       </View>
 
       <AppText variant="displayMd" style={[styles.onImage, styles.title]} accessibilityRole="header">
@@ -84,17 +90,19 @@ export function LookInfoPanel({
         ) : (
           <View style={styles.spacer} />
         )}
-        <Pressable
-          onPress={onBook}
-          accessibilityRole="button"
-          accessibilityLabel={`Book ${artist.name}`}
-          style={({ pressed }) => [styles.book, pressed && styles.bookPressed]}
-        >
-          <AppText variant="labelLg" style={styles.bookLabel}>
-            Book
-          </AppText>
-          <Icon name="arrow_forward" size={20} color={colors.textPrimary} />
-        </Pressable>
+        {onBook ? (
+          <Pressable
+            onPress={onBook}
+            accessibilityRole="button"
+            accessibilityLabel={`Book ${artist.name}`}
+            style={({ pressed }) => [styles.book, pressed && styles.bookPressed]}
+          >
+            <AppText variant="labelLg" style={styles.bookLabel}>
+              Book
+            </AppText>
+            <Icon name="arrow_forward" size={20} color={colors.textPrimary} />
+          </Pressable>
+        ) : null}
       </View>
     </View>
   );
