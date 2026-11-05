@@ -40,6 +40,14 @@ export const colors = {
 
   /** Modal backdrop. */
   scrim: 'rgba(27, 22, 23, 0.4)',
+
+  /** Secondary text on top of photos. */
+  onImageMuted: 'rgba(255, 255, 255, 0.82)',
+  /** Translucent controls on top of photos. */
+  overlayFill: 'rgba(27, 22, 23, 0.32)',
+  overlayBorder: 'rgba(255, 255, 255, 0.28)',
+  /** Light translucent control on photos (e.g. save button on cards). */
+  overlayLight: 'rgba(255, 255, 255, 0.82)',
 } as const;
 
 export type ColorToken = keyof typeof colors;

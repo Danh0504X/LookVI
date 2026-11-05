@@ -23,6 +23,11 @@ type ScreenProps = {
   /** Apply the standard horizontal screen padding. Default true. */
   padded?: boolean;
   contentStyle?: StyleProp<ViewStyle>;
+  /**
+   * Pad the content for the home indicator. Default true; pass false inside a tab
+   * navigator, whose tab bar already handles the bottom inset.
+   */
+  bottomInset?: boolean;
 };
 
 /**
@@ -36,9 +41,10 @@ export function Screen({
   scroll = true,
   padded = true,
   contentStyle,
+  bottomInset: applyBottomInset = true,
 }: ScreenProps) {
   const insets = useSafeAreaInsets();
-  const bottomInset = insets.bottom + spacing.lg;
+  const bottomInset = (applyBottomInset ? insets.bottom : 0) + spacing.lg;
   const contentPadding = [
     padded && styles.padded,
     !footer && { paddingBottom: bottomInset },
