@@ -16,6 +16,7 @@ Choose Service Variant → Request Booking.** Roles: Customer and Makeup Artist.
 | Navigation | Expo Router (typed routes) |
 | Styling | React Native `StyleSheet` + design tokens in `src/theme` |
 | UI utilities | `react-native-safe-area-context`, `expo-image`, `@expo/vector-icons` |
+| Fonts & icons | Playfair Display + Plus Jakarta Sans (`@expo-google-fonts/*`), Material Symbols Outlined (bundled TTF) |
 | Linting | ESLint 9 + `eslint-config-expo` |
 
 No backend, auth, payments, state-management or styling framework is installed yet.
@@ -96,14 +97,12 @@ the Expo plugin is declared in `.claude/settings.json` (install with
 
 ## Current status
 
-Project setup complete: architecture, tooling, provisional tokens and a single bootstrap
-screen. No product features are implemented.
+Batch 1 of the UI phase is implemented: Stitch-derived theme, fonts, icons, bundled demo
+images, shared components, an in-memory session, and the Welcome → Login (mocked Google)
+→ Role select → Customer / Artist onboarding flow. The flow ends on a temporary
+"coming soon" screen. See `CLAUDE.md` §2 for the batch plan.
 
 ## Next phase
 
-1. Convert the Stitch design system (`ui/.../warm_editorial_beauty/DESIGN.md`) into
-   `src/theme` tokens and load the design's fonts.
-2. Plan the route tree (Customer and Artist flows) from the Stitch screens.
-3. Define domain models (Look, Post, Artist, Service, ServiceVariant, BookingRequest).
-4. Implement screens feature by feature, following the Stitch designs.
-5. Set the iOS bundle identifier and Android package before the first EAS build.
+Batch 2: customer tab bar, Home, Explore, Look detail and Search (all result states).
+Before the first EAS build, set the iOS bundle identifier and Android package.

@@ -17,27 +17,46 @@ lives in `src/`.
 | `src/hooks`, `src/utils`, `src/config` | Cross-feature hooks, pure helpers, app constants | `@/domain`, `@/theme`, each other |
 
 Dependencies point one way: `app → features → shared (components, domain, theme, utils)`.
-Features do not import each other's internals; shared code is promoted instead.
+
+**Feature public API:** every feature has an `index.ts`. Routes and other features import
+from `@/features/<name>` only, never from a feature's inner folders. Cross-cutting app state
+(e.g. `session`) is a feature too, consumed through its public API.
 
 ## Feature folder
 
 Create only what a feature needs:
 
 ```
-src/features/looks/
-  screens/LookDetailScreen.tsx   composed screen, rendered by a route
-  components/LookCard.tsx        feature-only components
-  hooks/useLook.ts               state and data access for the screen
-  services/looksService.ts       data source (mock now, API later)
-  types.ts                       feature-local types
+src/features/onboarding/
+  index.ts                         public API (screens, hooks other code may use)
+  screens/ArtistOnboardingScreen.tsx
+  components/ServiceRadiusPicker.tsx
+  hooks/useArtistProfileForm.ts    form state + validation
+  services/areaService.ts          data access (mock now, API later)
 ```
 
-Route example (`app/look/[id].tsx`):
+Route files only re-export a screen:
 
 ```tsx
-import { LookDetailScreen } from '@/features/looks/screens/LookDetailScreen';
-export default LookDetailScreen;
+// app/onboarding/artist.tsx
+export { ArtistOnboardingScreen as default } from '@/features/onboarding';
 ```
+
+## Current routes
+
+| Route | Screen | Feature |
+|---|---|---|
+| `/` | Redirects by session (`getEntryRoute`) | session |
+| `/welcome`, `/login`, `/role` | Welcome, Login, Role select | auth (`app/(auth)/`) |
+| `/onboarding/customer`, `/onboarding/artist` | First-time setup per role | onboarding |
+| `/coming-soon` | **Temporary** end of Batch 1 | session |
+
+Navigation after a session change uses `useGoToEntry()` (clears the stack, then `/` decides).
+
+## App state
+
+`SessionProvider` (React context + reducer) holds the mocked account, role and setup
+profiles **in memory**; a cold start always returns to Welcome. No state library is used.
 
 ## Data flow
 
@@ -46,5 +65,16 @@ props and stay free of fetching logic. When a backend is chosen, only services c
 
 ## Styling
 
-`StyleSheet.create` with values from `@/theme`. Current tokens are provisional and will
-be replaced with tokens derived from the Stitch designs in `ui/`.
+`StyleSheet.create` with values from `@/theme` (tokens taken from the Stitch Tailwind
+config, reduced to a lean set). Text goes through `AppText` (type scale + colour tokens);
+icons through `Icon` (Material Symbols Outlined, `filled` for active states).
+
+Custom fonts: each weight is its own family (`fontFamilies.*`); never combine them with
+`fontWeight`.
+
+## Assets
+
+- `assets/fonts/` — Material Symbols Outlined (outlined + filled static TTFs, Apache 2.0)
+  and `MaterialSymbolsOutlined.json` (icon name → codepoint).
+- `assets/images/mock/` — compressed Stitch images; `manifest.json` lists their source alt
+  texts and screens. Only images referenced in `src/data/mock/images.ts` are bundled.

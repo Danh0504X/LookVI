@@ -1,7 +1,13 @@
 # CLAUDE.md — Lookvi
 
 Guidance for Claude Code (and other agents) working in this repository.
-Read this file, `README.md` and `docs/ARCHITECTURE.md` before implementing anything.
+Read this file, `docs/PRODUCT_CONTEXT.md` and `docs/ARCHITECTURE.md` before implementing
+anything.
+
+**Source precedence:** owner's latest instruction → Confirmed items in
+`docs/PRODUCT_CONTEXT.md` → Stitch screens → Proposed items.
+`chatgpt_doc/` is a ChatGPT-generated reference pack: **reference only, not binding**.
+Where it conflicts with the owner's answers, the owner wins.
 
 ## 1. Product
 
@@ -21,31 +27,53 @@ Discover Look → View Post → Explore Artist → Select Service → Choose Ser
 
 Roles: **Customer** and **Makeup Artist**.
 
-### Confirmed product decisions (MVP demo)
+### Key product decisions (summary — full detail in `docs/PRODUCT_CONTEXT.md`)
 
 | Topic | Decision |
 |---|---|
-| Market | Vietnam. Prices in VND (`850.000 ₫`), UI copy in Vietnamese. |
-| Payments | Not in the MVP demo; added in a later phase. |
-| Ratings & reviews | Rating per completed booking + written review. |
-| Artist verification | Planned, optional for the demo. |
-| Travel / service-area fee | Not charged for now. |
-| Customer content | Customers cannot post; they search and browse the feed only. |
-| Cancel / reschedule | Required booking logic. |
-| Visual direction | Lean and restrained: minimal, not flashy. |
+| Build type | MVP **demo** with mock data; no backend |
+| Market | Vietnam; prices in VND (`850.000 ₫`) |
+| UI language | **English only**, as in the Stitch designs |
+| Payments | Not in the demo; added later |
+| Ratings & reviews | Rating per completed booking + written review |
+| Artist verification | Planned; optional in the demo |
+| Travel / service-area fee | Not charged for now |
+| Customer content | Customers cannot post; search and browse only |
+| Booking | Request → artist accepts/declines → completed. Statuses: `PENDING`, `CONFIRMED`, `COMPLETED`, `DECLINED`, `CANCELLED`. Free cancel until 2h before. Reschedule deferred |
+| Roles | User picks Customer or Artist right after login; separate tab bars per role |
+| Pricing | Price lives on the service variant, never on the image; "From X ₫" only when linked |
+| Media | Photos only in MVP (TikTok is an interaction reference, not video) |
+| Contact | In-app chat; never expose phone numbers |
+| Visual direction | Lean and restrained: minimal, not flashy |
 
 ## 2. Current status
 
-**Phase: project setup only.** The app contains a single temporary bootstrap screen
-(`app/index.tsx`). No product features, product screens, navigation tabs, mock data,
-backend, auth or payments exist yet. Do not start the next phase unless asked.
+**Phase: UI implementation in batches** (plan below; stop after each batch for review).
+
+| Batch | Scope | Status |
+|---|---|---|
+| 1 | Theme, fonts, icons, images, base components, session; Welcome, Login, Role select, Customer onboarding, Artist onboarding | **Done** (not yet reviewed on device) |
+| 2 | Customer tabs; Home, Explore, Look detail, Search (all result states) | Next |
+| 3 | Artist profile (customer view), Booking form, Confirmation, My bookings, Booking detail, cancel rule | — |
+| 4 | Saved, Profile, Chat (mock) | — |
+| 5 | Artist tabs; Dashboard, Booking requests, Artist booking detail, Portfolio, My services, Create/Edit service | — |
+
+`/coming-soon` is a temporary end-of-flow screen; replace it when role home screens exist.
+Mocked Google sign-in returns "Mai Chi"; choosing Artist pre-fills the demo artist
+"Linh Nguyen". No backend, real auth or payments.
 
 ## 3. Tech stack
 
 - Expo SDK 58, React Native 0.88, React 19.3, TypeScript 6 (strict)
 - Expo Router (file-based routing, typed routes enabled; React Compiler enabled)
 - Styling: React Native `StyleSheet` + tokens from `src/theme` — nothing else
-- `react-native-safe-area-context`, `expo-image`, `@expo/vector-icons`
+- `react-native-safe-area-context`, `expo-image`, `@expo/vector-icons` (used only to
+  render the bundled Material Symbols font via `src/components/ui/Icon.tsx`)
+- Fonts: `@expo-google-fonts/playfair-display`, `@expo-google-fonts/plus-jakarta-sans`
+  (import per weight, e.g. `.../400Regular`, so only used weights are bundled)
+- Shared primitives: `@/components/ui` (AppText, Button, Chip, TextField, SelectField,
+  OptionSheet, Avatar, Icon, Wordmark, PageHeading) and `@/components/layout` (Screen,
+  TopBar, PlaceholderScreen). Use them before writing new ones.
 - ESLint via `eslint-config-expo` (flat config)
 - No state-management library, no styling framework, no backend SDK
 
@@ -158,12 +186,18 @@ padding, multiple competing design systems.
 
 Google Stitch exports live in `ui/stitch_glow_beauty_app_ui/` (`code.html` + `screen.png`
 per screen, plus `warm_editorial_beauty/DESIGN.md` describing the visual system).
-`lookvi_*` screens are the current MVP reference. `glow_*` screens are a **future design
-direction**: do not implement them in the MVP unless asked. The HTML is a visual
+All exported screens are the current MVP reference. `glow_*` screens were made before the
+product was renamed from Glow to Lookvi; they are Lookvi screens. Replace any `Glow` text with
+`Lookvi` when implementing. The HTML is a visual
 reference only — translate it to React Native; never copy HTML/Tailwind into the app.
 
 The tokens in `src/theme` are **provisional neutral placeholders**. Replacing them with
 tokens derived from the Stitch design system is the first step of the UI phase.
+
+**Implementation rules for Stitch screens** (full list: `docs/PRODUCT_CONTEXT.md` §8):
+keep layouts but simplify (no redundant badges, no spa-style copy, restrained accent color);
+images from `assets/images/mock/` only (no remote URLs); icons = Material Symbols Outlined;
+fonts = Playfair Display + Plus Jakarta Sans; deliver in batches and stop for review.
 
 ## 8. Installed Claude Code skills
 
@@ -198,7 +232,10 @@ How to use them in this project:
 | Post | A piece of content by an artist showing one or more looks |
 | Portfolio | An artist's collection of posts |
 | Service | A bookable offering by an artist (e.g. bridal makeup) |
-| Service Variant | A priced option of a service (e.g. duration, level, add-ons) |
+| Service Variant | A purpose/package of a service with its own price and duration (casual, party, wedding guest) |
+| Service Add-on | Optional extra with its own price (false lashes, hairstyling) |
+| Style (Look taxonomy) | Visual style tag such as Korean, Douyin, Soft Glam; not purchasable |
+| Review | Star rating + text tied to one completed booking |
 | Booking Request | A customer's request for a service variant at a time and address |
 | Booking | A booking request accepted by the artist |
 | At-home service | The artist travels to the customer's address (only mode in MVP) |
