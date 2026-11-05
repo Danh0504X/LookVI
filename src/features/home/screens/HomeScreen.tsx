@@ -11,7 +11,6 @@ import { exploreHref } from '@/features/explore';
 import { CustomerHeader } from '@/features/location';
 import { useSession } from '@/features/session';
 import { layout, spacing } from '@/theme';
-import { showDemoNotice } from '@/utils/demoNotice';
 
 import { OccasionCard } from '../components/OccasionCard';
 import { getHomeArtists, type HomeArtistFilter } from '../services/homeArtists';
@@ -98,7 +97,9 @@ export function HomeScreen() {
               }
               trailing={<Rating value={artist.rating} reviewCount={artist.reviewCount} />}
               showDivider={index < artists.length - 1}
-              onPress={() => showDemoNotice('Artist profiles')}
+              onPress={() =>
+                router.push({ pathname: '/artist/[artistId]', params: { artistId: artist.id } })
+              }
             />
           ))
         )}

@@ -74,9 +74,9 @@ export function SearchScreen() {
             commitQuery();
             router.push({ pathname: '/post/[postId]', params: { postId: card.post.id } });
           }}
-          onSelectArtist={() => {
+          onSelectArtist={(result) => {
             commitQuery();
-            showDemoNotice('Artist profiles');
+            router.push({ pathname: '/artist/[artistId]', params: { artistId: result.artist.id } });
           }}
         />
       ) : (

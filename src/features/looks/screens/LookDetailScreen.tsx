@@ -10,7 +10,6 @@ import { IconButton } from '@/components/ui';
 import { getPostById, toPostCard, type PostCardData } from '@/features/catalog';
 import { useSaved } from '@/features/saved';
 import { colors, layout, spacing } from '@/theme';
-import { showDemoNotice } from '@/utils/demoNotice';
 
 import { LookInfoPanel } from '../components/LookInfoPanel';
 import { PageDots } from '../components/PageDots';
@@ -90,8 +89,15 @@ function LookDetail({ card }: { card: PostCardData }) {
         saved={isPostSaved(post.id)}
         bottomInset={insets.bottom}
         onToggleSave={() => togglePostSaved(post.id)}
-        onOpenArtist={() => showDemoNotice('Artist profiles')}
-        onBook={() => showDemoNotice('Booking')}
+        onOpenArtist={() =>
+          router.push({ pathname: '/artist/[artistId]', params: { artistId: card.artist.id } })
+        }
+        onBook={() =>
+          router.push({
+            pathname: '/book/[artistId]',
+            params: { artistId: card.artist.id, postId: post.id },
+          })
+        }
       />
     </View>
   );
