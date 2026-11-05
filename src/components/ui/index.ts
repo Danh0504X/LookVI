@@ -1,5 +1,7 @@
 export { AppText } from './AppText';
 export { Avatar } from './Avatar';
+export { Badge } from './Badge';
+export type { BadgeTone } from './Badge';
 export { Button } from './Button';
 export { Chip } from './Chip';
 export { FieldLabel } from './FieldLabel';
