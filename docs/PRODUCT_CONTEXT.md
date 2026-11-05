@@ -113,7 +113,11 @@ Requested → Confirmed → Completed. "On my way" / "Arrived" actions from Stit
 - Cancel is available while PENDING/CONFIRMED and more than 2 hours before start.
 - Payment copy: "No advance payment … you pay after the service" (payments not in the demo).
 
-**Deferred:** reschedule; rating/review after completion (no Stitch design yet). **Open:** response SLA (Stitch copy "usually accepts within 15
+**Deferred:** reschedule; rating/review after completion (no Stitch design yet).
+
+**Chat (Batch 4):** one conversation per booking, shared by both roles. Messages containing a
+phone-number-like run of 9+ digits cannot be sent (confirmed: contact stays in the app).
+Closed bookings (declined/cancelled) keep a read-only history. No attachments or voice yet. **Open:** response SLA (Stitch copy "usually accepts within 15
 minutes" is illustrative), review window, dispute flow.
 
 ## 7. Stitch screen inventory (`ui/stitch_glow_beauty_app_ui/`)

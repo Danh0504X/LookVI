@@ -54,7 +54,9 @@ export { ArtistOnboardingScreen as default } from '@/features/onboarding';
 | `/explore?filter=` | Explore grid (tab); `filter` = `all`, `style:<id>`, `occasion:<id>` | explore |
 | `/explore/search?tab=` | Search, inside the Explore tab stack | search |
 | `/bookings` | My bookings (tab): Pending / Upcoming / History | bookings |
-| `/saved`, `/profile` | **Temporary** placeholders (tabs) | saved / session |
+| `/saved` | Saved looks and artists (tab) | saved |
+| `/profile` | Customer profile and account (tab) | profile |
+| `/chat/[bookingId]` | Booking-scoped chat (both roles) | messaging |
 | `/post/[postId]` | Full-screen look detail, above the tabs | looks |
 | `/artist/[artistId]` | Artist profile (customer view): services, portfolio, reviews | artists |
 | `/book/[artistId]?postId=&variantId=` | Booking request form | bookings |
@@ -64,7 +66,8 @@ export { ArtistOnboardingScreen as default } from '@/features/onboarding';
 
 `app/(customer)/_layout.tsx` guards the customer area (redirects to `/` without a finished
 customer setup) and mounts `SavedProvider` and `SearchHistoryProvider`. `BookingsProvider` is
-mounted in `app/_layout.tsx`, outside the session, so bookings survive role switches.
+mounted in `app/_layout.tsx` together with `MessagesProvider`, outside the session, so bookings
+and chats survive role switches.
 
 Navigation after a session change uses `useGoToEntry()` (clears the stack, then `/` decides).
 
@@ -77,7 +80,9 @@ Navigation after a session change uses `useGoToEntry()` (clears the stack, then 
 | `auth`, `onboarding` | Sign-in, role choice, first-time setup screens |
 | `location` | Customer header with area picker |
 | `home`, `explore`, `search`, `looks` | Discovery screens |
-| `saved` | In-memory saved looks and artists (screen in Batch 4) |
+| `saved` | In-memory saved looks and artists, Saved screen |
+| `profile` | Customer profile, account rows, switch to artist mode, log out |
+| `messaging` | Messages store, chat screen, contact policy (no phone numbers) |
 | `artists` | Artist profile as customers see it |
 | `bookings` | Bookings store, booking rules (groups, 2-hour cancellation), demo availability, booking screens |
 

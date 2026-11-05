@@ -101,9 +101,11 @@ Batches 1–2 of the UI phase are implemented: sign-in and onboarding for both r
 customer tab bar with Home, Explore (style and occasion filters), full-screen Look detail and
 Search (recent/suggested searches; All, Styles, Posts and Artists results). Batch 3 adds the
 artist profile, booking request form, confirmation, My bookings and booking detail with the
-2-hour free-cancellation rule. Saved and Profile tabs are placeholders. See `CLAUDE.md` §2.
+2-hour free-cancellation rule. Batch 4 adds Saved (looks and artists), the customer Profile
+(switch to artist mode, log out) and booking-scoped chat. See `CLAUDE.md` §2.
 
 ## Next phase
 
-Batch 4: Saved (looks and artists), customer Profile and Chat (mock messages).
+Batch 5: artist tab bar, Dashboard, Booking requests (accept/decline), artist booking detail
+(complete), Portfolio, My services and Create/Edit service.
 Before the first EAS build, set the iOS bundle identifier and Android package.

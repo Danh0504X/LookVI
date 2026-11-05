@@ -54,15 +54,16 @@ Roles: **Customer** and **Makeup Artist**.
 |---|---|---|
 | 1 | Theme, fonts, icons, images, base components, session; Welcome, Login, Role select, Customer onboarding, Artist onboarding | **Done** |
 | 2 | Customer tabs; Home, Explore, Look detail, Search (all result states) | **Done** |
-| 3 | Artist profile (customer view), Booking form, Confirmation, My bookings, Booking detail, cancel rule | **Done** (not yet reviewed on device) |
-| 4 | Saved, Profile, Chat (mock) | Next |
-| 5 | Artist tabs; Dashboard, Booking requests, Artist booking detail, Portfolio, My services, Create/Edit service | — |
+| 3 | Artist profile (customer view), Booking form, Confirmation, My bookings, Booking detail, cancel rule | **Done** |
+| 4 | Saved, Profile, Chat (mock) | **Done** (not yet reviewed on device) |
+| 5 | Artist tabs; Dashboard, Booking requests, Artist booking detail, Portfolio, My services, Create/Edit service | Next |
 
-Temporary screens: `/coming-soon` (artist end of flow until Batch 5); customer Saved and
-Profile tabs are placeholders. "Message artist" shows a demo notice until Chat (Batch 4).
+Temporary screens: `/coming-soon` (artist end of flow until Batch 5). "Switch to artist mode"
+in the customer Profile changes the role without signing out. Chat is booking-scoped and
+blocks phone numbers (`features/messaging/services/contactPolicy.ts`).
 New booking requests stay `PENDING` until the artist side (Batch 5) can accept them; seeded
 bookings cover the other statuses. `BookingsProvider` is mounted at the app root so bookings
-survive sign-out / role switching.
+survive sign-out / role switching; `MessagesProvider` sits next to it for the same reason.
 Mocked Google sign-in returns "Mai Chi"; choosing Artist pre-fills the demo artist
 "Linh Nguyen". No backend, real auth or payments.
 
@@ -78,8 +79,8 @@ Mocked Google sign-in returns "Mai Chi"; choosing Artist pre-fills the demo arti
 - Shared primitives: `@/components/ui` (AppText, Button, Chip, IconButton, TextField,
   SelectField, OptionSheet, SearchField, SectionHeader, Rating, Avatar, Icon, Wordmark,
   PageHeading), `@/components/layout` (Screen, TopBar, AppHeader, PlaceholderScreen) and
-  `@/components/cards` (LookCard, ArtistRow, PostRow, StyleCard, VariantOption); `Badge` in
-  `@/components/ui`. Use them before writing new ones.
+  `@/components/cards` (LookCard, ArtistRow, PostRow, StyleCard, VariantOption); `Badge` and
+  `ListRow` in `@/components/ui`. Use them before writing new ones.
 - Gradients: React Native's built-in `backgroundImage: 'linear-gradient(...)'` style (no library).
 - ESLint via `eslint-config-expo` (flat config)
 - No state-management library, no styling framework, no backend SDK
