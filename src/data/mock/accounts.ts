@@ -15,6 +15,7 @@ export const mockGoogleAccount: Account = {
  * the demo shows a realistic profile. All fields stay editable in onboarding.
  */
 export const mockArtistProfileDraft: ArtistProfile = {
+  artistId: 'linh-nguyen',
   displayName: 'Linh Nguyen',
   bio: 'Professional makeup artist specialising in soft glam and natural radiant makeup for events and parties.',
   avatar: mockImages.portrait02,

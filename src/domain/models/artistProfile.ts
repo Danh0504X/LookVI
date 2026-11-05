@@ -8,6 +8,8 @@ export type ServiceRadiusKm = (typeof SERVICE_RADIUS_OPTIONS_KM)[number];
 
 /** Public profile an artist sets up before receiving bookings. */
 export type ArtistProfile = {
+  /** Catalog artist this profile belongs to (the demo artist is "linh-nguyen"). */
+  artistId: string;
   displayName: string;
   bio: string;
   avatar: ImageRef;

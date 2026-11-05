@@ -1,3 +1,4 @@
+import type { ImageRef } from './media';
 import type { Occasion } from './service';
 
 /** Confirmed demo flow: PENDING → CONFIRMED → COMPLETED, plus DECLINED and CANCELLED. */
@@ -27,6 +28,8 @@ export type Booking = {
   reference: string;
   customerId: string;
   customerName: string;
+  /** Snapshot of the customer's photo, if they have one. */
+  customerAvatar: ImageRef | null;
   artistId: string;
   /** Post that inspired the request, if any. */
   postId: string | null;

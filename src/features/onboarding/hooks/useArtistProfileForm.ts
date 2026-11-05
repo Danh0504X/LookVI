@@ -18,6 +18,7 @@ export function useArtistProfileForm(initial: ArtistProfile) {
     displayName.trim().length >= MIN_NAME_LENGTH && bio.trim().length >= MIN_BIO_LENGTH;
 
   const toProfile = (): ArtistProfile => ({
+    artistId: initial.artistId,
     displayName: displayName.trim(),
     bio: bio.trim(),
     avatar: initial.avatar,

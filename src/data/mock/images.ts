@@ -17,4 +17,6 @@ export const mockImages = {
   postNaturalGlam: require('@/assets/images/mock/post-natural-glam.jpg'),
   postSoftRadiant: require('@/assets/images/mock/post-soft-radiant.jpg'),
   clientMaiChi: require('@/assets/images/mock/client-mai-chi.jpg'),
+  client01: require('@/assets/images/mock/client-01.jpg'),
+  client02: require('@/assets/images/mock/client-02.jpg'),
 } as const satisfies Record<string, number>;
