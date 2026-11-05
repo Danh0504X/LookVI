@@ -1,4 +1,4 @@
 // Public API of the saved feature.
 export { SavedProvider } from './SavedProvider';
-export { SavedPlaceholderScreen } from './screens/SavedPlaceholderScreen';
+export { SavedScreen } from './screens/SavedScreen';
 export { useSaved } from './useSaved';

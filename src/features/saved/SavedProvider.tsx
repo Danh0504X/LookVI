@@ -1,8 +1,12 @@
 import { createContext, useMemo, useState, type ReactNode } from 'react';
 
+import { mockSavedArtistIds, mockSavedPostIds } from '@/data/mock';
+
 export type SavedContextValue = {
-  savedPostIds: ReadonlySet<string>;
-  savedArtistIds: ReadonlySet<string>;
+  /** Most recently saved first. */
+  savedPostIds: readonly string[];
+  /** Most recently saved first. */
+  savedArtistIds: readonly string[];
   isPostSaved: (postId: string) => boolean;
   togglePostSaved: (postId: string) => void;
   isArtistSaved: (artistId: string) => boolean;
@@ -11,25 +15,22 @@ export type SavedContextValue = {
 
 export const SavedContext = createContext<SavedContextValue | null>(null);
 
-const toggle = (set: ReadonlySet<string>, id: string): ReadonlySet<string> => {
-  const next = new Set(set);
-  if (next.has(id)) next.delete(id);
-  else next.add(id);
-  return next;
-};
+/** Removes the id if present, otherwise adds it to the front (newest first). */
+const toggle = (ids: readonly string[], id: string): readonly string[] =>
+  ids.includes(id) ? ids.filter((item) => item !== id) : [id, ...ids];
 
-/** In-memory saved looks and artists for the demo session. The Saved screen arrives in Batch 4. */
+/** In-memory saved looks and artists for the demo session (seeded with a few items). */
 export function SavedProvider({ children }: { children: ReactNode }) {
-  const [savedPostIds, setSavedPostIds] = useState<ReadonlySet<string>>(new Set());
-  const [savedArtistIds, setSavedArtistIds] = useState<ReadonlySet<string>>(new Set());
+  const [savedPostIds, setSavedPostIds] = useState<readonly string[]>(mockSavedPostIds);
+  const [savedArtistIds, setSavedArtistIds] = useState<readonly string[]>(mockSavedArtistIds);
 
   const value = useMemo<SavedContextValue>(
     () => ({
       savedPostIds,
       savedArtistIds,
-      isPostSaved: (postId) => savedPostIds.has(postId),
+      isPostSaved: (postId) => savedPostIds.includes(postId),
       togglePostSaved: (postId) => setSavedPostIds((current) => toggle(current, postId)),
-      isArtistSaved: (artistId) => savedArtistIds.has(artistId),
+      isArtistSaved: (artistId) => savedArtistIds.includes(artistId),
       toggleArtistSaved: (artistId) => setSavedArtistIds((current) => toggle(current, artistId)),
     }),
     [savedPostIds, savedArtistIds],
