@@ -5,6 +5,7 @@ export type { ArtistProfile, ServiceRadiusKm } from './artistProfile';
 export { FREE_CANCELLATION_HOURS } from './booking';
 export type { Booking, BookingAddress, BookingRequest, BookingStatus, CancelledBy } from './booking';
 export type { ImageRef } from './media';
+export type { Message, MessageSender } from './message';
 export type { Post } from './post';
 export type { Review } from './review';
 export { OCCASION_LABELS } from './service';
