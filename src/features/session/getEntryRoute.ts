@@ -11,5 +11,7 @@ export function getEntryRoute(session: SessionState): Href {
   if (!session.role) return '/role';
   if (session.role === 'customer' && !session.customerProfile) return '/onboarding/customer';
   if (session.role === 'artist' && !session.artistProfile) return '/onboarding/artist';
+  if (session.role === 'customer') return '/home';
+  // TEMPORARY until the artist dashboard (Batch 5).
   return '/coming-soon';
 }

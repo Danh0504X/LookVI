@@ -15,6 +15,7 @@ export type SessionAction =
   | { type: 'signedIn'; account: Account }
   | { type: 'roleChosen'; role: UserRole }
   | { type: 'customerSetupCompleted'; profile: CustomerProfile }
+  | { type: 'customerAreaChanged'; areaId: string }
   | { type: 'artistSetupCompleted'; profile: ArtistProfile }
   | { type: 'signedOut' };
 
@@ -33,6 +34,10 @@ export function sessionReducer(state: SessionState, action: SessionAction): Sess
       return { ...state, role: action.role };
     case 'customerSetupCompleted':
       return { ...state, customerProfile: action.profile };
+    case 'customerAreaChanged':
+      return state.customerProfile
+        ? { ...state, customerProfile: { ...state.customerProfile, areaId: action.areaId } }
+        : state;
     case 'artistSetupCompleted':
       return { ...state, artistProfile: action.profile };
     case 'signedOut':

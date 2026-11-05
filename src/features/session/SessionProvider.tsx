@@ -9,6 +9,7 @@ export type SessionContextValue = SessionState & {
   signIn: () => Promise<void>;
   chooseRole: (role: UserRole) => void;
   completeCustomerSetup: (profile: CustomerProfile) => void;
+  updateCustomerArea: (areaId: string) => void;
   completeArtistSetup: (profile: ArtistProfile) => void;
   signOut: () => void;
 };
@@ -27,6 +28,7 @@ export function SessionProvider({ children }: { children: ReactNode }) {
       },
       chooseRole: (role) => dispatch({ type: 'roleChosen', role }),
       completeCustomerSetup: (profile) => dispatch({ type: 'customerSetupCompleted', profile }),
+      updateCustomerArea: (areaId) => dispatch({ type: 'customerAreaChanged', areaId }),
       completeArtistSetup: (profile) => dispatch({ type: 'artistSetupCompleted', profile }),
       signOut: () => dispatch({ type: 'signedOut' }),
     }),
