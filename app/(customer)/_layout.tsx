@@ -15,7 +15,10 @@ export default function CustomerLayout() {
       <SearchHistoryProvider>
         <Stack
           screenOptions={{ headerShown: false, contentStyle: { backgroundColor: colors.background } }}
-        />
+        >
+          {/* The request is already sent: no swipe back into the form. */}
+          <Stack.Screen name="booking/[bookingId]/sent" options={{ gestureEnabled: false }} />
+        </Stack>
       </SearchHistoryProvider>
     </SavedProvider>
   );

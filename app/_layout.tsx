@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { iconFontAssets } from '@/components/ui';
+import { BookingsProvider } from '@/features/bookings';
 import { SessionProvider } from '@/features/session';
 import { colors, fontAssets } from '@/theme';
 
@@ -23,15 +24,18 @@ export default function RootLayout() {
 
   return (
     <SafeAreaProvider>
-      <SessionProvider>
-        <StatusBar style="dark" />
-        <Stack
-          screenOptions={{
-            headerShown: false,
-            contentStyle: { backgroundColor: colors.background },
-          }}
-        />
-      </SessionProvider>
+      {/* Bookings live outside the session so they survive switching roles (demo). */}
+      <BookingsProvider>
+        <SessionProvider>
+          <StatusBar style="dark" />
+          <Stack
+            screenOptions={{
+              headerShown: false,
+              contentStyle: { backgroundColor: colors.background },
+            }}
+          />
+        </SessionProvider>
+      </BookingsProvider>
     </SafeAreaProvider>
   );
 }
