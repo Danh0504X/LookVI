@@ -7,6 +7,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { iconFontAssets } from '@/components/ui';
 import { BookingsProvider } from '@/features/bookings';
+import { MessagesProvider } from '@/features/messaging';
 import { SessionProvider } from '@/features/session';
 import { colors, fontAssets } from '@/theme';
 
@@ -24,17 +25,19 @@ export default function RootLayout() {
 
   return (
     <SafeAreaProvider>
-      {/* Bookings live outside the session so they survive switching roles (demo). */}
+      {/* Bookings and chats live outside the session so both roles share them (demo). */}
       <BookingsProvider>
-        <SessionProvider>
-          <StatusBar style="dark" />
-          <Stack
-            screenOptions={{
-              headerShown: false,
-              contentStyle: { backgroundColor: colors.background },
-            }}
-          />
-        </SessionProvider>
+        <MessagesProvider>
+          <SessionProvider>
+            <StatusBar style="dark" />
+            <Stack
+              screenOptions={{
+                headerShown: false,
+                contentStyle: { backgroundColor: colors.background },
+              }}
+            />
+          </SessionProvider>
+        </MessagesProvider>
       </BookingsProvider>
     </SafeAreaProvider>
   );

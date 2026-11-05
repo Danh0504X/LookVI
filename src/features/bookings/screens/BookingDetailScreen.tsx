@@ -8,7 +8,6 @@ import { FREE_CANCELLATION_HOURS, type Artist, type Booking } from '@/domain/mod
 import { getAreaById, getArtistById, getPostById } from '@/features/catalog';
 import { colors, radii, spacing } from '@/theme';
 import { formatDuration, formatLongDate, formatTime } from '@/utils/dateTime';
-import { showDemoNotice } from '@/utils/demoNotice';
 
 import { ArtistSummary } from '../components/ArtistSummary';
 import { BookingProgress } from '../components/BookingProgress';
@@ -66,7 +65,9 @@ function BookingDetail({ booking, artist }: { booking: Booking; artist: Artist }
       <Button
         label="Message artist"
         variant="secondary"
-        onPress={() => showDemoNotice('Chat with artists')}
+        onPress={() =>
+          router.push({ pathname: '/chat/[bookingId]', params: { bookingId: booking.id } })
+        }
       />
       {cancellable ? (
         <Button label="Cancel booking" variant="ghost" onPress={confirmCancel} />
