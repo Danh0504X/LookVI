@@ -1,0 +1,168 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport">
+<title>GLOW — Look Feed: Korean Soft Glam</title>
+<!-- Tailwind CSS CDN with forms and container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Plus Jakarta Sans & Playfair Display -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              rose: '#E8B4AC',
+              roseHover: '#DF9F96',
+              charcoal: '#292726',
+            }
+          }
+        }
+      }
+    }
+  </script>
+<!-- BEGIN: Custom Styles -->
+<style data-purpose="base-layout">
+    /* Lock viewport to exact mobile proportions while ensuring fluid support */
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0c0a09;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow: hidden;
+    }
+
+    /* Subtle backdrop blur for pill tags */
+    .glass-pill {
+      background: rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .icon-glass-btn {
+      background: rgba(0, 0, 0, 0.22);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+  </style>
+<!-- END: Custom Styles -->
+</head>
+<body class="flex items-center justify-center min-h-screen bg-stone-950 select-none">
+<!-- BEGIN: Phone Frame / Viewport Container (iPhone 390x844 approx aspect) -->
+<main class="relative w-full max-w-[390px] h-[100dvh] max-h-[844px] overflow-hidden bg-black shadow-2xl flex flex-col justify-between sm:rounded-[44px] sm:border-[8px] sm:border-neutral-800">
+<!-- Background Portrait Image -->
+<div class="absolute inset-0 z-0">
+<img alt="Korean Soft Glam Look model" class="w-full h-full object-cover object-center pointer-events-none" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiGWFarzwXkL8iuZt59kY0QvEQmXRDNaWzZ7_M5gFPE6l4YgDWPB6ypwXlAu_UfDa86y9WAY8pfDBqZsrdJnQr4uFI02Q0Dk4bqqthdwX3Y2-vEuCCZjPbcXxjyLD6yjDG70q4mHX2eOR4IuUu2gTSFBTp4BgEHSSyePw7u0aFLk3DEQ7AV8N3Bd4PRjoiKSZn-wCgT0I3mufq9dgJ3N_XiSifvzOMRV8ghdMrNwIlx7zORbr_Cf4m">
+<!-- Bottom 45% Smooth Vignette Gradient for Readability -->
+<div class="absolute inset-0 pointer-events-none" style="background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 25%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.65) 75%, rgba(0,0,0,0.88) 100%);">
+</div>
+</div>
+<!-- BEGIN: Top Bar Navigation -->
+<header class="relative z-20 pt-12 px-5 flex items-center justify-between" data-purpose="top-navigation">
+<!-- Back Button -->
+<button aria-label="Back to Explore" class="w-10 h-10 rounded-full icon-glass-btn flex items-center justify-center text-white active:scale-95 transition-transform duration-150" type="button">
+<svg class="w-5 h-5 -ml-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Carousel Pagination Indicator Pill -->
+<div class="glass-pill px-3 py-1.5 rounded-full flex items-center space-x-1.5">
+<span class="w-4 h-1.5 rounded-full bg-white transition-all"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
+</div>
+<!-- Context Menu Button -->
+<button aria-label="More Options" class="w-10 h-10 rounded-full icon-glass-btn flex items-center justify-center text-white active:scale-95 transition-transform duration-150" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 12h.01M12 12h.01M19 12h.01" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</header>
+<!-- END: Top Bar Navigation -->
+<!-- BEGIN: Floating Right-Side Action -->
+
+<!-- END: Floating Right-Side Action -->
+<!-- BEGIN: Bottom Content & CTA Section -->
+<footer class="relative z-20 px-5 pb-8 flex flex-col gap-3.5" data-purpose="bottom-details-and-booking">
+<!-- Artist Attribution Row -->
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-2.5">
+<div class="relative">
+<img alt="Artist Linh Nguyen profile" class="w-9 h-9 rounded-full object-cover ring-1 ring-white/60 shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZrKYimsSeC2lOrdwMPig5x2xl05ptsBDeKiBetgqAc74m0WgpQ26x_IVjM-gt0UScNPfRk78A-PsN6j0qIGyb7W496UEvDhygmHqmNKnv6a4gnZfDFVIrMqPpU-zqfek5qh0iDJ0hXNRrEBOjn09DTg08Ang1-677xuzW2TVkJKuPqQ6efyrmpdMIq8E45cgLxR0HLJx4Jq0_rM4n4RkQPoRZlBIAjsEzdM_O6hqUyxWmu5gwKeQs">
+</div>
+<div class="flex flex-col">
+<div class="flex items-center space-x-1.5">
+<span class="text-white text-sm font-medium tracking-wide">Linh Nguyen</span>
+<!-- Verified Badge -->
+<svg class="w-3.5 h-3.5 text-white/90 fill-current" fill="currentColor" viewBox="0 0 20 20">
+<path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
+</svg>
+</div>
+<!-- Rating -->
+<div class="flex items-center text-[11px] text-white/75 font-normal space-x-1">
+<span class="text-amber-300 text-[10px]">★</span>
+<span class="">4.9 (128 reviews)</span>
+</div>
+</div>
+</div>
+<!-- Save / Bookmark Button Aligned with Avatar -->
+<button aria-label="Save Look" class="w-10 h-10 rounded-full icon-glass-btn flex items-center justify-center text-white hover:text-brand-rose active:scale-90 transition-all duration-150 shadow-lg" type="button">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- Title & Editorial Description -->
+<div class="flex flex-col space-y-1">
+<h1 class="text-white font-serif text-[23px] leading-tight font-semibold tracking-wide drop-shadow-sm">
+          Korean Soft Glam
+        </h1>
+<p class="text-white/80 text-[13px] leading-relaxed line-clamp-2 pr-6 font-normal">
+          Soft, radiant makeup with natural rosy tones and a luminous glass finish.
+        </p>
+</div>
+<!-- Bottom Booking & Category Row -->
+<div class="flex items-center justify-between gap-3 pt-1.5">
+<!-- Service Type & Pricing Pill -->
+<div class="glass-pill px-3.5 py-2.5 rounded-full flex items-center space-x-2 text-white/90 text-xs font-medium">
+<!-- Sparkle/Brush subtle icon -->
+<svg class="w-3.5 h-3.5 text-white/80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Party Makeup</span>
+<span class="text-white/40">|</span>
+<span class="text-white font-semibold">From 550.000₫</span>
+</div>
+<!-- Book Action Button -->
+<button class="flex-shrink-0 bg-brand-rose hover:bg-brand-roseHover active:scale-95 transition-all duration-150 text-brand-charcoal px-5 py-2.5 rounded-full font-semibold text-xs tracking-wide flex items-center space-x-1 shadow-md" type="button">
+<span class="">Book</span>
+<svg class="w-3.5 h-3.5 font-bold" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</div>
+<!-- iOS Home Indicator -->
+<div class="w-full flex justify-center pt-2">
+<div class="w-32 h-1 bg-white/35 rounded-full"></div>
+</div>
+</footer>
+<!-- END: Bottom Content & CTA Section -->
+</main>
+<!-- END: Phone Frame / Viewport Container -->
+
+
+</body></html>

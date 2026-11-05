@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_stack" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&amp;family=Plus+Jakarta+Sans:ital,wght@0,400..700;1,400..700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100vw;margin:0;padding:0;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "primary-fixed-dim": "#cfc4c5", "tertiary-container": "#332925", "outline-variant": "#d0c4c5", "surface-container-highest": "#e4e2e0", "surface-tint": "#645c5d", "on-secondary-fixed-variant": "#71352d", "on-tertiary-fixed": "#221a16", "surface-container": "#efedec", "inverse-on-surface": "#f2f0ee", "on-tertiary-fixed-variant": "#4f4440", "on-primary-fixed": "#201a1b", "on-error": "#ffffff", "on-surface": "#1b1c1b", "tertiary-fixed-dim": "#d3c3bd", "secondary-container": "#fda99c", "surface-variant": "#e4e2e0", "secondary-fixed": "#ffdad5", "on-secondary-fixed": "#390b06", "on-tertiary-container": "#9e908a", "primary-fixed": "#ebe0e1", "secondary": "#8e4c43", "on-background": "#1b1c1b", "inverse-surface": "#30302f", "error": "#ba1a1a", "primary": "#1b1617", "tertiary-fixed": "#f0dfd9", "surface-bright": "#fbf9f7", "on-secondary-container": "#783b33", "inverse-primary": "#cfc4c5", "on-primary-fixed-variant": "#4c4546", "on-primary": "#ffffff", "error-container": "#ffdad6", "secondary-fixed-dim": "#ffb4a9", "surface-container-high": "#eae8e6", "tertiary": "#1d1512", "outline": "#7f7576", "on-primary-container": "#9a9192", "surface-container-low": "#f5f3f1", "on-error-container": "#93000a", "on-secondary": "#ffffff", "surface-container-lowest": "#ffffff", "primary-container": "#302a2b", "on-surface-variant": "#4d4546", "on-tertiary": "#ffffff", "surface": "#fbf9f7", "background": "#fbf9f7", "surface-dim": "#dbdad8" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "margin": "1.25rem", "space-md": "1rem", "gutter": "1rem", "space-lg": "1.5rem", "space-sm": "0.5rem", "space-xs": "0.25rem", "space-xl": "2rem" }, "fontFamily": { "display-md": ["Playfair Display"], "headline-lg": ["Playfair Display"], "label-sm": ["Plus Jakarta Sans"], "body-lg": ["Plus Jakarta Sans"], "title-md": ["Plus Jakarta Sans"], "display-lg": ["Playfair Display"], "price-lg": ["Plus Jakarta Sans"], "body-md": ["Plus Jakarta Sans"], "label-md": ["Plus Jakarta Sans"], "headline-sm": ["Playfair Display"], "label-lg": ["Plus Jakarta Sans"] }, "fontSize": { "display-md": ["30px", { "lineHeight": "38px", "letterSpacing": "-0.01em", "fontWeight": "400" }], "headline-lg": ["26px", { "lineHeight": "34px", "letterSpacing": "-0.01em", "fontWeight": "500" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "600" }], "body-lg": ["16px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }], "title-md": ["18px", { "lineHeight": "24px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "display-lg": ["38px", { "lineHeight": "46px", "letterSpacing": "-0.02em", "fontWeight": "400" }], "price-lg": ["18px", { "lineHeight": "22px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0em", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "500" }], "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "0em", "fontWeight": "600" }], "label-lg": ["14px", { "lineHeight": "18px", "letterSpacing": "0.01em", "fontWeight": "600" }] } } } };</script></head><body class="bg-surface text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-sm min-w-0"><button aria-label="Go back" class="w-11 h-11 -ml-2 flex items-center justify-center text-on-surface hover:text-primary transition-colors" onclick="history.back()"><span class="material-symbols-outlined text-[24px]">arrow_back_ios_new</span></button><h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Look Detail</h1></div><div class="flex items-center gap-space-sm"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XaBdZAnq2z-H0Rtb6LakX9q1PPHlqzjhHMnT7evp2t3wF-iZEhDRCqctmktJkqh7QaHxzkbDYVPklKvSC9Vy1RlHGQLJzbLBOfg-qh2UeF49t8betOL734ZZBPf2hMWKy3dKuFR3-2SHPqA0XlWAmsntEgUFCZwOO0X6srzxAoTArfg_CQweEZWo8w7BZdPBz8FF4V5VsbhAu7BUr8IdL-gcM5NhY2pF_qFXQwpB9H2CZjJB-TKiGSFqc"/></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-safe bg-surface"><div class="flex flex-col w-full pb-32">
+<!-- Sub-bar Action Bar for Page Context (Bookmark & Share) -->
+<div class="px-margin pt-4 pb-2 flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Verified Master Artist</span>
+<button aria-label="Save Artist" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:text-secondary transition-colors" id="bookmark-btn" onclick="toggleBookmark()">
+<span class="material-symbols-outlined text-[20px]" id="bookmark-icon">bookmark</span>
+</button>
+</div>
+<!-- Artist Identity Hero -->
+<div class="px-margin pt-2 pb-6">
+<div class="flex items-start gap-space-md">
+<div class="relative flex-shrink-0">
+<img alt="Linh Nguyen Portrait" class="w-20 h-24 object-cover rounded-xl shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB194E1Q770so9l-E-dbXPJxws1NyLVGA5qB12_OtoaCjKwWjks31-XyRa6au6EpQApHhlZcCNJZeHcM4JNz2vtcYZB11VzgPC4mmehRpQu04ikb7stjx_duo_U0dMAAR3Cwsc0y7Sbe03x0RG1qSFLFT1aFAVYs4Lae-GnEydzPCYO4kCPwxZKz_uN1Dc5gVEeEINXOqTnhhZ8dxjefOO9vR9OYnfdutiBQBPx2vMtbCx3CTgBmUZ5"/>
+<span class="absolute -bottom-1.5 -right-1.5 w-5 h-5 rounded-full bg-surface-container-lowest flex items-center justify-center shadow-sm">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+</span>
+</div>
+<div class="flex-1 min-w-0">
+<h2 class="font-display-md text-display-md text-on-surface tracking-tight">Linh Nguyen</h2>
+<div class="flex items-center flex-wrap gap-x-1.5 gap-y-1 mt-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-lg text-label-lg font-bold text-on-surface">4.9</span>
+<span class="font-body-md text-body-md text-on-surface-variant">(128 reviews)</span>
+<span class="text-outline-variant">•</span>
+<span class="font-body-md text-body-md text-on-surface-variant">127 completed</span>
+</div>
+<div class="flex items-center gap-1.5 mt-2 text-on-surface-variant">
+<span class="material-symbols-outlined text-[15px]">location_on</span>
+<span class="font-body-md text-body-md">Da Nang</span>
+</div>
+</div>
+</div>
+<!-- Bio Card -->
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-4 leading-relaxed">
+      Professional makeup artist specializing in soft glam, Korean dewy skin, and natural editorial looks for events &amp; parties.
+    </p>
+<!-- Location & Travel Badges -->
+<div class="flex flex-wrap items-center gap-2 mt-4">
+<div class="px-3 py-1.5 rounded-full bg-surface-container-low flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-secondary">commute</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Hai Chau, Da Nang (Travel included)</span>
+</div>
+<div class="px-3 py-1.5 rounded-full bg-surface-container-low flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[15px] text-secondary">sanitizer</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">Sanitized Kit Guarantee</span>
+</div>
+</div>
+</div>
+<!-- Interactive Content Tabs -->
+<div class="px-margin mb-6">
+<div class="flex p-1 bg-surface-container rounded-xl gap-1" role="tablist">
+<button aria-selected="true" class="flex-1 py-2 rounded-lg font-label-lg text-label-lg transition-all text-on-surface bg-surface-container-lowest shadow-sm" id="tab-services" onclick="switchTab('services')" role="tab">
+        Services (3)
+      </button>
+<button aria-selected="false" class="flex-1 py-2 rounded-lg font-label-lg text-label-lg transition-all text-on-surface-variant hover:text-on-surface" id="tab-portfolio" onclick="switchTab('portfolio')" role="tab">
+        Portfolio
+      </button>
+<button aria-selected="false" class="flex-1 py-2 rounded-lg font-label-lg text-label-lg transition-all text-on-surface-variant hover:text-on-surface" id="tab-reviews" onclick="switchTab('reviews')" role="tab">
+        Reviews (128)
+      </button>
+</div>
+</div>
+<!-- Tab Panel 1: Services List -->
+<section class="px-margin flex flex-col gap-3" id="panel-services">
+<div class="flex items-baseline justify-between mb-1">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Curated Rituals</h3>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Tap to pre-select</span>
+</div>
+<!-- Service Option 1 -->
+<div class="service-card cursor-pointer p-4 rounded-xl bg-surface-container-lowest transition-all hover:bg-surface-container-low flex items-center justify-between" onclick="selectService(this, 'Personal Makeup', '450.000₫')">
+<div class="flex-1 min-w-0 pr-4">
+<div class="flex items-center gap-2">
+<h4 class="font-title-md text-title-md text-on-surface">Personal Makeup</h4>
+</div>
+<div class="flex items-center gap-2 mt-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span class="font-body-md text-body-md">45 mins</span>
+<span>•</span>
+<span class="font-body-md text-body-md">Everyday natural finish</span>
+</div>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="font-price-lg text-price-lg text-on-surface block">450.000₫</span>
+<div class="check-circle w-5 h-5 rounded-full bg-surface-container mt-1 ml-auto flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[13px] text-surface-container-lowest opacity-0 check-mark">check</span>
+</div>
+</div>
+</div>
+<!-- Service Option 2 (Popular Highlight) -->
+<div class="service-card selected-service cursor-pointer p-4 rounded-xl bg-secondary-fixed transition-all flex items-center justify-between" onclick="selectService(this, 'Party Makeup', '550.000₫')">
+<div class="flex-1 min-w-0 pr-4">
+<div class="flex items-center gap-2">
+<h4 class="font-title-md text-title-md text-on-secondary-fixed">Party Makeup</h4>
+<span class="px-2 py-0.5 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm uppercase">Popular</span>
+</div>
+<div class="flex items-center gap-2 mt-1 text-on-secondary-fixed-variant">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span class="font-body-md text-body-md">60 mins</span>
+<span>•</span>
+<span class="font-body-md text-body-md">Korean glass skin &amp; lashes</span>
+</div>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="font-price-lg text-price-lg text-on-secondary-fixed block">550.000₫</span>
+<div class="check-circle w-5 h-5 rounded-full bg-secondary mt-1 ml-auto flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[13px] text-on-secondary opacity-100 check-mark">check</span>
+</div>
+</div>
+</div>
+<!-- Service Option 3 -->
+<div class="service-card cursor-pointer p-4 rounded-xl bg-surface-container-lowest transition-all hover:bg-surface-container-low flex items-center justify-between" onclick="selectService(this, 'Event Makeup', '700.000₫')">
+<div class="flex-1 min-w-0 pr-4">
+<div class="flex items-center gap-2">
+<h4 class="font-title-md text-title-md text-on-surface">Event Makeup</h4>
+</div>
+<div class="flex items-center gap-2 mt-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span class="font-body-md text-body-md">75 mins</span>
+<span>•</span>
+<span class="font-body-md text-body-md">High-definition photography proof</span>
+</div>
+</div>
+<div class="text-right flex-shrink-0">
+<span class="font-price-lg text-price-lg text-on-surface block">700.000₫</span>
+<div class="check-circle w-5 h-5 rounded-full bg-surface-container mt-1 ml-auto flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-[13px] text-surface-container-lowest opacity-0 check-mark">check</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Tab Panel 2: Portfolio Looks Grid -->
+<section class="px-margin mt-8 flex flex-col" id="panel-portfolio">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Lookbook &amp; Archive</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Authored looks by Linh Nguyen</p>
+</div>
+<span class="font-label-md text-label-md text-secondary">4 Selected</span>
+</div>
+<!-- 2-column image grid -->
+<div class="grid grid-cols-2 gap-3">
+<!-- Look 1 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden p-2 shadow-sm">
+<div class="w-full aspect-[4/5] rounded-lg overflow-hidden bg-surface-container-highest">
+<img alt="Korean Soft Glam Look" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSibwNHBbFu4r31uawENamVVaMyXxVM9GH8NIjOiUf_USwY6bYioGjioQd8Ph3du41pENs_ymIdFZuo670N-F527X_lvZuvnx8Fh6xWnBwyRQeq2yLGmIWRvXx8_4UZJvBmiyP5uUvAdQkf9dkGEJyWhlszlhrzCcCrEqUx2zravaBl7Y3nZ5cmnfIiamoO11iUz3ft9CS7_ZpgR-5oswfd4Ux8pi6SLqrQdnNh4COSjaQcUAJzscK"/>
+</div>
+<div class="pt-2 px-1 pb-1">
+<h5 class="font-label-lg text-label-lg text-on-surface font-semibold truncate">Korean Soft Glam</h5>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Dewy / Glass Finish</span>
+</div>
+</div>
+<!-- Look 2 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden p-2 shadow-sm">
+<div class="w-full aspect-[4/5] rounded-lg overflow-hidden bg-surface-container-highest">
+<img alt="Velvet Natural Look" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDk01E51vAeBVLntQAFoVr_gi0UZXD6dA6V6wxibNQ5gRI2wqYHDqkanmtUJ7WLmovzjrrb5XaUDRxM3xWuOCC25vyHaEyqVwJR8rhXyDcDxAFtCrvUxXikfuxHvBhH-oLi_a_Syl3jDqpb3n2BuS0iMvz-NSEmau4xDOYeMmole2TV2YCWzKKqMDopAv7xwHLvWIw76VrN5woO0jcOfLF5P_WVtQ8uXwiSjOsSV1wH1a_Es39JV9mq"/>
+</div>
+<div class="pt-2 px-1 pb-1">
+<h5 class="font-label-lg text-label-lg text-on-surface font-semibold truncate">Velvet Natural</h5>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Soft Matte Balance</span>
+</div>
+</div>
+<!-- Look 3 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden p-2 shadow-sm">
+<div class="w-full aspect-[4/5] rounded-lg overflow-hidden bg-surface-container-highest">
+<img alt="Clean Girl Glow Look" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWRn08YQ2nU55BI9SLopNyFZg9tWgHOSWvME72AONGIakqN3yqpN5MTJaC2naSKXh45UvgP2UaU9bpNfbzb8S6J3C0gBwjl55eNfkc1tsJ49kPL9mf0I8erggJ9qt_cYBAudf1IvmP1jbGQunl6-1X01PRgZ9VfxGYr7UTGOpPAG8enuzoSXpgoIsMYv7H2t7CZnqUQfjJ8QEziUT1a6WMXGWTRcIQuTwUFT6DUhVaOg3gvon_WNl-"/>
+</div>
+<div class="pt-2 px-1 pb-1">
+<h5 class="font-label-lg text-label-lg text-on-surface font-semibold truncate">Clean Girl Glow</h5>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Feathered Brow &amp; Lip</span>
+</div>
+</div>
+<!-- Look 4 -->
+<div class="group flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden p-2 shadow-sm">
+<div class="w-full aspect-[4/5] rounded-lg overflow-hidden bg-surface-container-highest">
+<img alt="Peach Nude Look" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWfDYFk7Y3iH8O9eh8Frw1Y-Gn9apzKTlbsp_hgHiF0pZexOhXNIAEYxhYh4nwDQArvMlM_eLQkf_rxhN7XsWjRKIkw4ibkdrxUDnBBprMr-QgOy1DU0w3NriZQ_id60tjOaAMQu1H8_GtlRtelCO3lahEAGBoe6wE-LEWIioZXAKVhlP-oSvtmq5jLQcFedtY_t-I8h_BNwp5I_DTkCyGXGPjWiCH5fYIvP3UOfsuc61eC0_bhU3d"/>
+</div>
+<div class="pt-2 px-1 pb-1">
+<h5 class="font-label-lg text-label-lg text-on-surface font-semibold truncate">Peach Nude</h5>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Warm Pastel Palette</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Tab Panel 3: Client Endorsements / Reviews Excerpt -->
+<section class="px-margin mt-8 flex flex-col" id="panel-reviews">
+<div class="flex items-center justify-between mb-3">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Client Excerpt</h3>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-label-md text-label-md font-bold text-on-surface">4.9 / 5.0</span>
+</div>
+</div>
+<!-- Review Card -->
+<div class="p-4 rounded-xl bg-surface-container-lowest shadow-sm flex flex-col">
+<div class="flex items-center justify-between mb-2">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed font-bold font-label-md text-label-md">
+            MC
+          </div>
+<div>
+<h5 class="font-title-md text-title-md text-on-surface">Mai Chi</h5>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Booked: Party Makeup • 2 days ago</span>
+</div>
+</div>
+<div class="flex text-secondary text-[14px]">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant italic">
+        “Linh was punctual, super gentle, and the dewy skin stayed fresh all evening!”
+      </p>
+<div class="mt-4 pt-3 flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Verified Appointment</span>
+<button class="font-label-md text-label-md text-secondary hover:underline flex items-center gap-0.5">
+          See all 128 reviews
+          <span class="material-symbols-outlined text-[14px]">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Sticky Bottom Reservation Bar -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-surface/95 backdrop-blur-md pb-safe">
+<div class="px-margin py-3 flex items-center justify-between gap-4">
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider truncate" id="selected-service-title">Party Makeup</span>
+<div class="flex items-baseline gap-1">
+<span class="font-price-lg text-price-lg text-on-surface" id="selected-service-price">550.000₫</span>
+<span class="font-body-md text-body-md text-on-surface-variant">starting</span>
+</div>
+</div>
+<button class="flex-1 max-w-[200px] h-[52px] rounded-xl bg-primary-container text-on-primary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-md hover:bg-primary transition-all active:scale-[0.98]" id="book-cta-btn" onclick="handleBookAction()">
+<span>Book Artist</span>
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+  function switchTab(tabName) {
+    const tabs = ['services', 'portfolio', 'reviews'];
+    tabs.forEach(t => {
+      const btn = document.getElementById('tab-' + t);
+      const isTarget = t === tabName;
+      if (btn) {
+        btn.setAttribute('aria-selected', isTarget);
+        if (isTarget) {
+          btn.className = 'flex-1 py-2 rounded-lg font-label-lg text-label-lg transition-all text-on-surface bg-surface-container-lowest shadow-sm';
+        } else {
+          btn.className = 'flex-1 py-2 rounded-lg font-label-lg text-label-lg transition-all text-on-surface-variant hover:text-on-surface';
+        }
+      }
+    });
+
+    const targetSection = document.getElementById('panel-' + tabName);
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+
+  function selectService(cardElement, title, price) {
+    const cards = document.querySelectorAll('.service-card');
+    cards.forEach(c => {
+      c.className = 'service-card cursor-pointer p-4 rounded-xl bg-surface-container-lowest transition-all hover:bg-surface-container-low flex items-center justify-between';
+      const checkCircle = c.querySelector('.check-circle');
+      const checkMark = c.querySelector('.check-mark');
+      if (checkCircle) checkCircle.className = 'check-circle w-5 h-5 rounded-full bg-surface-container mt-1 ml-auto flex items-center justify-center transition-colors';
+      if (checkMark) checkMark.className = 'material-symbols-outlined text-[13px] text-surface-container-lowest opacity-0 check-mark';
+      const h4 = c.querySelector('h4');
+      if (h4) h4.className = 'font-title-md text-title-md text-on-surface';
+    });
+
+    cardElement.className = 'service-card selected-service cursor-pointer p-4 rounded-xl bg-secondary-fixed transition-all flex items-center justify-between';
+    const activeCircle = cardElement.querySelector('.check-circle');
+    const activeMark = cardElement.querySelector('.check-mark');
+    if (activeCircle) activeCircle.className = 'check-circle w-5 h-5 rounded-full bg-secondary mt-1 ml-auto flex items-center justify-center transition-colors';
+    if (activeMark) activeMark.className = 'material-symbols-outlined text-[13px] text-on-secondary opacity-100 check-mark';
+
+    const activeH4 = cardElement.querySelector('h4');
+    if (activeH4) activeH4.className = 'font-title-md text-title-md text-on-secondary-fixed';
+
+    document.getElementById('selected-service-title').textContent = title;
+    document.getElementById('selected-service-price').textContent = price;
+  }
+
+  let isBookmarked = false;
+  function toggleBookmark() {
+    isBookmarked = !isBookmarked;
+    const icon = document.getElementById('bookmark-icon');
+    if (isBookmarked) {
+      icon.style.fontVariationSettings = "'FILL' 1";
+      icon.classList.add('text-secondary');
+    } else {
+      icon.style.fontVariationSettings = "'FILL' 0";
+      icon.classList.remove('text-secondary');
+    }
+  }
+
+  function handleBookAction() {
+    const title = document.getElementById('selected-service-title').textContent;
+    const price = document.getElementById('selected-service-price').textContent;
+    const btn = document.getElementById('book-cta-btn');
+    const originalText = btn.innerHTML;
+    
+    btn.innerHTML = `<span class="material-symbols-outlined text-[18px] animate-spin">refresh</span><span>Reserving...</span>`;
+    setTimeout(() => {
+      btn.innerHTML = `<span class="material-symbols-outlined text-[18px]">check</span><span>Confirmed!</span>`;
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+      }, 1600);
+    }, 700);
+  }
+</script></main></body></html>

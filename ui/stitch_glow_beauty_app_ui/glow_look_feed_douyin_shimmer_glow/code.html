@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>GLOW — Douyin Shimmer Glow</title>
+<!-- Tailwind CSS v3 with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Google Fonts: Playfair Display & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,400&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style data-purpose="typography">
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-serif-display {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+  </style>
+<style data-purpose="custom-utilities">
+    /* Subtle bottom vignette gradient tailored for text readability */
+    .gradient-overlay {
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.0) 25%,
+        rgba(0, 0, 0, 0.0) 55%,
+        rgba(0, 0, 0, 0.5) 75%,
+        rgba(0, 0, 0, 0.84) 100%
+      );
+    }
+    .frosted-glass {
+      background: rgba(255, 255, 255, 0.16);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+  </style>
+</head>
+<body class="bg-[#121111] flex items-center justify-center min-h-screen p-0 sm:p-4 select-none">
+<!-- BEGIN: MobileDeviceFrame -->
+<main class="relative w-full max-w-[390px] h-[844px] overflow-hidden sm:rounded-[44px] shadow-2xl bg-black flex flex-col justify-between" data-purpose="viewport-container">
+<!-- BEGIN: BackgroundLayer -->
+<div class="absolute inset-0 z-0" data-purpose="fullbleed-image-container">
+<img alt="Douyin Shimmer Glow Makeup look on Asian model" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ94T-hdOQ-3gsyMSrjAw5-_3XeoDc5smVVftiAsYfIFDAmlCHZmDmz6OecGgvXavE1X_r14UhFNilo2JYX0A3d0qX4PVsAElPREHhlBpwhkWKu73QoA9QjIkyNgocQ9xrA1_vzC3ra7Y-f5Dubme7T6xX2Py3xtW4I8DEcACEwUsCKa79j5L7N_PUYcmuMLISXDaQaKzTPclPERnqPYOGScltmZthTbMEbqcQx9QieATPu--V0TZz">
+<!-- Gradient mask for maximum text contrast and photographic immersion -->
+<div aria-hidden="true" class="absolute inset-0 gradient-overlay pointer-events-none"></div>
+</div>
+<!-- END: BackgroundLayer -->
+<!-- BEGIN: TopBar -->
+<header class="relative z-10 pt-12 px-5 flex items-center justify-between" data-purpose="top-navigation">
+<!-- Back button -->
+<button aria-label="Back to explore" class="w-10 h-10 -ml-2 rounded-full flex items-center justify-center text-white/90 active:scale-95 transition-transform" type="button">
+<svg class="w-6 h-6 stroke-[1.75]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M15.75 19.5L8.25 12l7.5-7.5" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+<!-- Carousel indicator pill (2 of 4) -->
+<nav aria-label="Look pagination" class="frosted-glass px-2.5 py-1.5 rounded-full flex items-center gap-1.5 shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
+<span class="w-3.5 h-1.5 rounded-full bg-white transition-all duration-300"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-white/40"></span>
+</nav>
+<!-- Context menu -->
+<button aria-label="More options" class="w-10 h-10 -mr-2 rounded-full flex items-center justify-center text-white/90 active:scale-95 transition-transform" type="button">
+<svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+<path d="M6 12a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0z"></path>
+</svg>
+</button>
+</header>
+<!-- END: TopBar -->
+<!-- BEGIN: FloatingSideActions -->
+<!-- Floating right-side interactive bookmark/save button -->
+
+<!-- END: FloatingSideActions -->
+<!-- BEGIN: BottomContentArea -->
+<footer class="relative z-10 px-5 pb-8 pt-2 flex flex-col gap-3" data-purpose="look-metadata-and-booking">
+<!-- Artist attribution header -->
+<section aria-label="Makeup Artist Information" class="flex items-center gap-2.5">
+<img alt="Minh Anh profile avatar" class="w-9 h-9 rounded-full object-cover ring-1.5 ring-white/60 shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZrKYimsSeC2lOrdwMPig5x2xl05ptsBDeKiBetgqAc74m0WgpQ26x_IVjM-gt0UScNPfRk78A-PsN6j0qIGyb7W496UEvDhygmHqmNKnv6a4gnZfDFVIrMqPpU-zqfek5qh0iDJ0hXNRrEBOjn09DTg08Ang1-677xuzW2TVkJKuPqQ6efyrmpdMIq8E45cgLxR0HLJx4Jq0_rM4n4RkQPoRZlBIAjsEzdM_O6hqUyxWmu5gwKeQs">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="text-white text-sm font-medium tracking-tight">Minh Anh</span>
+<!-- Verified Badge -->
+<svg class="w-3.5 h-3.5 text-white/90 fill-white" viewBox="0 0 24 24">
+<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1.25 14.5l-4-4 1.41-1.41 2.59 2.58 6.59-6.59 1.41 1.42-8 8z"></path>
+</svg>
+</div>
+<!-- Review rating note -->
+<div class="flex items-center gap-1 text-[11px] text-white/75">
+<span class="text-amber-300 text-xs">★</span>
+<span class="font-medium text-white/90">4.8</span>
+<span class="text-white/60">(96 reviews)</span>
+</div>
+</div>
+<button aria-label="Remove from saved looks" class="ml-auto w-10 h-10 frosted-glass rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-transform duration-200 shrink-0" type="button">
+<svg class="w-5 h-5 fill-[#D6A8A2] text-[#D6A8A2] drop-shadow-sm" viewBox="0 0 24 24">
+<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"></path>
+</svg>
+</button></section>
+<!-- Look Title & Editorial Description -->
+<article class="flex flex-col gap-1 pr-4">
+<h1 class="text-white text-[23px] font-serif-display font-medium tracking-wide leading-snug">
+          Douyin Shimmer Glow
+        </h1>
+<p class="text-white/85 text-[13px] font-normal leading-[1.38] line-clamp-2">
+          Dreamy shimmer eyes, glowing skin, and a delicate party-ready finish with soft glitter accents.
+        </p>
+</article>
+<!-- Booking and Category Action Row -->
+<section aria-label="Service Booking" class="mt-1.5 flex items-center justify-between gap-3">
+<!-- Service metadata tag -->
+<div class="frosted-glass flex items-center gap-2 px-3.5 py-2.5 rounded-full text-white/95 text-[12.5px] font-medium tracking-tight shadow-sm">
+<!-- Sparkle / Brush Icon -->
+<svg class="w-3.5 h-3.5 text-white/80" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+<path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span class="">Event Makeup</span>
+<span class="text-white/40">|</span>
+<span class="font-normal text-white/90">From 480.000₫</span>
+</div>
+<!-- Primary CTA Button -->
+<button class="shrink-0 bg-[#E8B4AC] hover:bg-[#dfa79e] active:scale-95 transition-all text-[#292726] font-semibold text-[13px] px-5 py-2.5 rounded-full flex items-center gap-1.5 shadow-md" type="button">
+<span class="">Book</span>
+<svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<path d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</button>
+</section>
+<!-- iOS Home Indicator -->
+<div aria-hidden="true" class="w-full flex justify-center pt-2">
+<div class="w-32 h-1 bg-white/35 rounded-full"></div>
+</div>
+</footer>
+<!-- END: BottomContentArea -->
+</main>
+<!-- END: MobileDeviceFrame -->
+
+
+</body></html>
