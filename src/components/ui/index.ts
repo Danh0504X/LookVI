@@ -8,6 +8,7 @@ export { FieldLabel } from './FieldLabel';
 export { Icon, iconFontAssets } from './Icon';
 export type { IconName } from './Icon';
 export { IconButton } from './IconButton';
+export { ListRow } from './ListRow';
 export { OptionSheet } from './OptionSheet';
 export type { Option } from './OptionSheet';
 export { PageHeading } from './PageHeading';
